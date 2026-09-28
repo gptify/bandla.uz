@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006bff" />
+      <stop offset="100%" stop-color="#0047b3" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#006bff" flood-opacity="0.25" />
+    </filter>
+  </defs>
+  
+  <!-- Icon squircle with subtle drop shadow -->
+  <g filter="url(#softGlow)">
+    <rect x="4" y="6" width="48" height="48" rx="14" fill="url(#brandGrad)" />
+    <!-- Calendar Body -->
+    <rect x="13" y="16" width="30" height="28" rx="6" fill="#ffffff" fill-opacity="0.2" />
+    <!-- Calendar Top Header Bar -->
+    <path d="M13 22C13 18.6863 15.6863 16 19 16H37C40.3137 16 43 18.6863 43 22V24H13V22Z" fill="#ffffff" fill-opacity="0.45" />
+    <!-- Calendar Ring Pins -->
+    <rect x="19" y="13" width="3" height="6" rx="1.5" fill="#ffffff" />
+    <rect x="34" y="13" width="3" height="6" rx="1.5" fill="#ffffff" />
+    <!-- Dynamic Checkmark Inside -->
+    <path d="M20 31.5L25 36.5L36 25.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Live Booking Pulse Dot -->
+    <circle cx="43" cy="15" r="4.5" fill="url(#accentGrad)" stroke="#ffffff" stroke-width="2" />
+  </g>
+  
+  <!-- Wordmark "Bandla" (Vector Paths for 100% pixel-perfect sharpness across all OS/browsers) -->
+  <text x="64" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif" font-size="33" font-weight="900" fill="#091e42" letter-spacing="-0.8">Bandla</text>
+  
+  <!-- Domain Badge ".uz" -->
+  <rect x="180" y="21" width="36" height="19" rx="6" fill="#edf5ff" stroke="#bfdbfe" stroke-width="1.2" />
+  <text x="186" y="34.5" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#006bff">.uz</text>
+</svg>

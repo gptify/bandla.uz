@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bandla — O‘zbekistonda uchrashuv va qabullarni avtomatlashtirish | bandla.gptify.uz</title>
+  <link rel="canonical" href="https://bandla.gptify.uz/" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/bandla_symbol.png" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            calblue: {
+              50: '#edf5ff',
+              100: '#d7e8ff',
+              500: '#006bff',
+              600: '#005be0',
+              700: '#0047b3',
+              800: '#0b3558',
+              900: '#091e42',
+            },
+            payme: '#00cccc',
+            click: '#00a3e0',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Plus Jakarta Sans"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      color: #0b2146;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 18%, rgba(0, 107, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    }
+    .cal-shadow {
+      box-shadow: 0 20px 40px -15px rgba(9, 30, 66, 0.08), 0 0 0 1px rgba(9, 30, 66, 0.05);
+    }
+    .cal-card-hover {
+      transition: all 0.25s ease;
+    }
+    .cal-card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px -12px rgba(0, 107, 255, 0.15), 0 0 0 1px rgba(0, 107, 255, 0.2);
+    }
+    .crisp-img {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  </style>
+</head>
+<body class="selection:bg-calblue-500 selection:text-white">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 sm:px-8 py-2.5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Restored Original Bandla Logo with Ultra-High Visibility & Crisp Rendering -->
+      <a href="#" class="flex items-center space-x-2 group">
+        <img 
+          src="/assets/bandla_logo.png" 
+           
+          alt="Bandla" 
+          class="h-9 sm:h-10 w-auto object-contain transition group-hover:opacity-90" 
+        />
+        <span class="text-[11px] px-1.5 py-0.5 rounded-md bg-blue-50 text-calblue-600 font-extrabold border border-blue-200/70 -ml-1">.gptify.uz</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <div class="hidden lg:flex items-center space-x-8 text-[14.5px] font-medium text-slate-600">
+        <a href="#solutions" class="hover:text-calblue-600 transition" data-i18n="nav_solutions">Sohalar</a>
+        <a href="#avval-hozir" class="hover:text-calblue-600 transition font-semibold text-calblue-700" data-i18n="nav_comparison">Avval vs Hozir</a>
+        <a href="#how-it-works" class="hover:text-calblue-600 transition" data-i18n="nav_how">Qanday ishlaydi</a>
+        <a href="#no-show-calc" class="hover:text-calblue-600 transition" data-i18n="nav_calc">Kalkulyator</a>
+        <a href="#pricing" class="hover:text-calblue-600 transition" data-i18n="nav_pricing">Tariflar</a>
+      </div>
+
+      <!-- Action Buttons & Language Switcher -->
+      <div class="flex items-center space-x-3">
+        
+        <!-- Segmented Trilingual Switcher (UZ / EN / RU) -->
+        <div class="inline-flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs font-bold text-slate-600">
+          <button onclick="setLanguage('uz')" id="lang-btn-uz" class="px-2.5 py-1 rounded-lg transition text-calblue-600 bg-white shadow-sm font-bold">UZ</button>
+          <button onclick="setLanguage('ru')" id="lang-btn-ru" class="px-2.5 py-1 rounded-lg transition hover:text-slate-900 font-semibold">RU</button>
+          <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 rounded-lg transition hover:text-slate-900 font-semibold">EN</button>
+        </div>
+
+        <a href="/app.html" class="text-xs sm:text-sm px-3.5 py-2 rounded-xl text-slate-700 hover:text-calblue-600 font-semibold transition hidden sm:inline-flex items-center space-x-1.5">
+          <i data-lucide="play-circle" class="w-4 h-4 text-calblue-500"></i>
+          <span data-i18n="nav_app">Jonli Ilova (App)</span>
+        </a>
+        
+        <!-- Primary CTA: Demo -> Telegram Bot (@GPTifyUzAdminbot) -->
+        <a href="https://t.me/GPTifyUzAdminbot" target="_blank" class="text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-xl bg-calblue-500 hover:bg-calblue-600 text-white font-bold shadow-md shadow-calblue-500/25 transition flex items-center space-x-1.5">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span data-i18n="nav_demo">Demo</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-8 hero-glow overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Left Column: Copy & Actions -->
+      <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-calblue-700 text-xs font-semibold">
+          <i data-lucide="clock" class="w-4 h-4 text-calblue-500"></i>
+          <span data-i18n="hero_badge">Vaqtni qadrlaydigan mutaxassislar va servislar uchun</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-calblue-900 tracking-tight leading-[1.2]" data-i18n="hero_title">
+          Har bir ish soatingizni kafolatli daromadga aylantiring.
+        </h1>
+
+        <!-- Subhead -->
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl" data-i18n="hero_sub">
+          Bo‘sh o‘tgan soatlar, kelmay qoladigan mijozlar va tinimsiz qo‘ng‘iroqlarga chek qo‘ying. Mijozlaringiz Telegram yoki vebda 1 daqiqada o‘zi yoziladi, to‘lov shaklini esa o‘zingiz belgilaysiz (joyida, depozit yoki to‘liq).
+        </p>
+
+        <!-- Feature bullets for quick scanning -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs font-semibold text-slate-700">
+          <div class="flex items-center space-x-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-500 shrink-0"></i>
+            <span data-i18n="bullet_1">Doimiy yozishmalarsiz</span>
+          </div>
+          <div class="flex items-center space-x-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+            <i data-lucide="send" class="w-4 h-4 text-calblue-500 shrink-0"></i>
+            <span data-i18n="bullet_2">Telegram Mini App</span>
+          </div>
+          <div class="flex items-center space-x-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+            <span data-i18n="bullet_3">Moslashuvchan to‘lov</span>
+          </div>
+        </div>
+
+        <!-- CTA Box: Leads to Telegram Bot Demo -->
+        <div class="pt-2 sm:pt-3">
+          <form onsubmit="event.preventDefault(); window.open('https://t.me/GPTifyUzAdminbot', '_blank');" class="flex flex-col sm:flex-row gap-2.5 max-w-lg">
+            <input 
+              type="text" 
+              placeholder="Telefon raqamingiz (+998 ...)" 
+              data-i18n-placeholder="hero_input_ph"
+              class="flex-1 px-4 py-3 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-calblue-500 focus:ring-4 focus:ring-blue-100 text-sm font-medium transition"
+            />
+            <button type="submit" class="px-6 py-3 rounded-xl bg-calblue-500 hover:bg-calblue-600 text-white font-bold text-sm shadow-md shadow-calblue-500/25 transition flex items-center justify-center space-x-2 shrink-0">
+              <span data-i18n="hero_cta">Demo olish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </form>
+          <div class="flex items-center space-x-5 text-xs text-slate-500 mt-3.5 font-medium flex-wrap gap-y-1.5">
+            <span class="flex items-center space-x-1.5">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+              <span data-i18n="hero_perk_1">14 kun bepul sinov</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+              <span data-i18n="hero_perk_2">Karta kiritish shart emas</span>
+            </span>
+            <span class="flex items-center space-x-1.5">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+              <span data-i18n="hero_perk_3">5 daqiqada sozlanadi</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Social proof logos -->
+        <div class="pt-6 sm:pt-7 border-t border-slate-200/80">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3" data-i18n="hero_trust">
+            O'zbekistondagi 500+ mutaxassislar va servislar ishonchi bilan
+          </p>
+          <div class="flex flex-wrap items-center gap-6 sm:gap-8 text-sm font-bold text-slate-400">
+            <span class="flex items-center space-x-1.5 text-slate-600"><i data-lucide="activity" class="w-4 h-4 text-calblue-500"></i> DentaSmile Clinic</span>
+            <span class="flex items-center space-x-1.5 text-slate-600"><i data-lucide="scale" class="w-4 h-4 text-calblue-500"></i> Legis Law Bureau</span>
+            <span class="flex items-center space-x-1.5 text-slate-600"><i data-lucide="scissors" class="w-4 h-4 text-calblue-500"></i> BarberStudio</span>
+            <span class="flex items-center space-x-1.5 text-slate-600"><i data-lucide="zap" class="w-4 h-4 text-calblue-500"></i> GPTify B2B</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Dedicated Clean Executive Light Porcelain Phone Mockup -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <!-- Realistic Smartphone Container in Executive Light Porcelain Style -->
+        <div class="relative mx-auto w-full max-w-[310px] sm:max-w-[325px] bg-slate-100 rounded-[40px] p-2.5 shadow-2xl shadow-blue-900/10 border-[3.5px] border-slate-300/80">
+          
+          <!-- Dynamic Island / Speaker notch -->
+          <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-900 rounded-full z-30 flex items-center justify-center">
+            <div class="w-2.5 h-2.5 bg-slate-800 rounded-full mr-2"></div>
+            <div class="w-2 h-2 bg-blue-950 rounded-full"></div>
+          </div>
+
+          <!-- Phone Screen Area (Light Porcelain Theme) -->
+          <div class="relative bg-[#f4f7fa] text-slate-800 rounded-[30px] overflow-hidden pt-5 pb-3 px-2.5 flex flex-col space-y-2 font-sans text-xs select-none shadow-inner border border-slate-200/60">
+            
+            <!-- Telegram Bot Header -->
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-200/80 bg-white/95 px-2 pt-1 -mx-3 -mt-1 backdrop-blur-md">
+              <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full bg-calblue-500 flex items-center justify-center p-1.5 shadow-sm">
+                  <img src="/assets/bandla_symbol.png" alt="Bandla" class="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <div class="font-bold text-[13px] flex items-center space-x-1 text-slate-900">
+                    <span>Bandla Bot</span>
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-calblue-500"></i>
+                  </div>
+                  <span class="text-[10px] text-slate-500 font-normal" data-i18n="bot_header_sub">bot • onlayn</span>
+                </div>
+              </div>
+              <div class="flex items-center space-x-1 text-slate-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+              </div>
+            </div>
+
+            <!-- Message Stream -->
+            <div class="space-y-2.5 pt-1">
+              
+              <!-- Bot greeting card -->
+              <div class="bg-white p-3 rounded-2xl rounded-tl-sm space-y-1.5 border border-slate-200/80 shadow-xs max-w-[92%]">
+                <p class="text-[11px] leading-relaxed text-slate-800" data-i18n="bot_msg_1">
+                  Assalomu alaykum! 👋<br />
+                  <b>Bandla</b> orqali qabulga yozilishingiz mumkin. Qaysi xizmat kerak?
+                </p>
+                <span class="block text-[9px] text-slate-400 text-right">09:41</span>
+              </div>
+
+              <!-- User choice bubble -->
+              <div class="flex justify-end">
+                <div class="bg-calblue-500 text-white px-3 py-1.5 rounded-2xl rounded-tr-sm text-[11px] font-medium flex items-center space-x-1.5 shadow-sm">
+                  <i data-lucide="stethoscope" class="w-3 h-3"></i>
+                  <span data-i18n="bot_user_service">Konsultatsiya (30 min)</span>
+                  <i data-lucide="check-check" class="w-3 h-3 opacity-90"></i>
+                </div>
+              </div>
+
+              <!-- Bot Time Slots Interactive Buttons -->
+              <div class="bg-white p-3 rounded-2xl rounded-tl-sm space-y-2 border border-slate-200/80 shadow-xs">
+                <p class="text-[11px] font-medium text-slate-700" data-i18n="bot_slot_title">Qulay vaqtni tanlang:</p>
+                <div class="grid grid-cols-2 gap-1.5 text-[10px]">
+                  <div class="py-1.5 px-2 rounded-lg bg-slate-50 text-slate-600 text-center font-medium border border-slate-200" data-i18n="bot_slot_1">Bugun, 14:00</div>
+                  <div class="py-1.5 px-2 rounded-lg bg-emerald-50 text-emerald-700 border-2 border-emerald-500 text-center font-bold flex items-center justify-center space-x-1 shadow-xs">
+                    <span data-i18n="bot_slot_2">Bugun, 16:00</span>
+                    <i data-lucide="check" class="w-3 h-3 text-emerald-600"></i>
+                  </div>
+                </div>
+                <span class="block text-[9px] text-slate-400 text-right">09:42</span>
+              </div>
+
+              <!-- Bot Deposit/Payment card -->
+              <div class="bg-white p-3 rounded-2xl rounded-tl-sm space-y-2 border border-slate-200/80 shadow-xs">
+                <div class="flex justify-between items-center text-[11px]">
+                  <span class="text-slate-600" data-i18n="bot_deposit_title">Qabulni tasdiqlash:</span>
+                  <span class="font-bold text-emerald-600" data-i18n="bot_deposit_val">50 000 so‘m depozit</span>
+                </div>
+                
+                <!-- Click / Payme Badges -->
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                  <div class="py-1.5 px-2 rounded-xl bg-sky-50 border border-sky-300 flex items-center justify-center space-x-1 text-[#00a3e0] font-black text-[11px] shadow-xs">
+                    <span>CLICK</span>
+                  </div>
+                  <div class="py-1.5 px-2 rounded-xl bg-teal-50 border border-teal-300 flex items-center justify-center space-x-1 text-[#00a8a8] font-black text-[11px] shadow-xs">
+                    <span>Payme</span>
+                  </div>
+                </div>
+                <div class="pt-1.5 flex items-center justify-between text-[10px] text-emerald-700 font-semibold bg-emerald-50 border border-emerald-200 p-1.5 rounded-lg">
+                  <span class="flex items-center space-x-1">
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span data-i18n="bot_paid">To‘lov tasdiqlandi!</span>
+                  </span>
+                  <span class="text-[9px] text-slate-400">09:44</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Input bar bottom -->
+            <div class="pt-2 flex items-center space-x-2 border-t border-slate-200">
+              <i data-lucide="paperclip" class="w-4 h-4 text-slate-400"></i>
+              <div class="flex-1 bg-white border border-slate-200 rounded-full px-3 py-1 text-[11px] text-slate-400" data-i18n="bot_input_ph">Xabar yozing...</div>
+              <div class="w-6 h-6 rounded-full bg-calblue-500 flex items-center justify-center text-white">
+                <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Decorative background glow -->
+        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-100 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute -top-6 -left-6 w-48 h-48 bg-emerald-100 rounded-full blur-3xl -z-10"></div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- AVVAL vs HOZIR (BEFORE vs AFTER) -->
+  <section id="avval-hozir" class="py-20 sm:py-28 px-4 sm:px-8 bg-gradient-to-b from-white via-slate-50/70 to-white border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto space-y-12">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-3 max-w-2xl mx-auto">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-500"></i>
+          <span data-i18n="diff_badge">Farqni amalda his eting</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-calblue-900 tracking-tight" data-i18n="diff_title">
+          Qabullarni boshqarish: Avval va Hozir
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base" data-i18n="diff_sub">
+          Mijozlar bilan qo‘lda yozishmalar biznesingiz vaqtini qanday o‘g‘irlayotganini va Bandla bilan qanday xotirjamlikka erishishingizni ko‘ring.
+        </p>
+      </div>
+
+      <!-- Before vs After Dual Visual Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
+        
+        <!-- LEFT: AVVAL (Qo'lda boshqaruv) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border-2 border-rose-100 shadow-xl shadow-rose-500/5 flex flex-col justify-between space-y-5 text-left relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-full blur-2xl -z-0"></div>
+          
+          <div class="space-y-4 relative z-10">
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-100/70 text-rose-700 text-xs font-black uppercase tracking-wider">
+                <span data-i18n="before_badge">🔴 AVVAL</span>
+                <span class="text-rose-400 font-normal">|</span>
+                <span class="font-bold text-rose-800" data-i18n="before_subbadge">Qo‘lda boshqaruv</span>
+              </div>
+              <span class="text-xs text-slate-400 font-medium" data-i18n="before_tag">Bosh og‘rig‘i</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-black text-slate-900 leading-tight" data-i18n="before_title">
+                Ko‘p qo‘ng‘iroq.<br />
+                Ko‘p bekor bo‘ladigan qabul.
+              </h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="before_sub">
+                Vaqt ketadi, mijozlar unutiladi, bo‘sh kelishuvlar biznesingizga bevosita zarar yetkazadi.
+              </p>
+            </div>
+
+            <div class="space-y-2.5 pt-2">
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-rose-50/50 border border-rose-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                    <i data-lucide="phone-missed" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">+998 90 123 45 67</div>
+                    <div class="text-[10px] text-slate-500" data-i18n="before_item_1_sub">Qabul haqida so‘radi, javob bermadi</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-slate-400 block">10:24</span>
+                  <span class="px-2 py-0.5 rounded-md bg-rose-200/60 text-rose-800 text-[10px] font-bold" data-i18n="before_item_1_status">Javobsiz</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-rose-50/50 border border-rose-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                    <i data-lucide="phone-off" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">+998 93 987 65 43</div>
+                    <div class="text-[10px] text-slate-500" data-i18n="before_item_2_sub">Vaqtni o‘zgartirmoqchi edi</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-slate-400 block">11:02</span>
+                  <span class="px-2 py-0.5 rounded-md bg-rose-200/60 text-rose-800 text-[10px] font-bold" data-i18n="before_item_2_status">Bekor qildi</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-rose-50/50 border border-rose-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                    <i data-lucide="message-square-off" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">Telegram Direct</div>
+                    <div class="text-[10px] text-slate-500" data-i18n="before_item_3_sub">«Kela olmayman, keyingi haftaga suring»</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-slate-400 block">14:36</span>
+                  <span class="px-2 py-0.5 rounded-md bg-rose-200/60 text-rose-800 text-[10px] font-bold" data-i18n="before_item_3_status">Bekor qildi</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-rose-50/50 border border-rose-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                    <i data-lucide="phone-missed" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">+998 91 200 33 44</div>
+                    <div class="text-[10px] text-slate-500" data-i18n="before_item_4_sub">Belgilangan vaqtda kelmadi (No-show)</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-slate-400 block">16:10</span>
+                  <span class="px-2 py-0.5 rounded-md bg-rose-200/60 text-rose-800 text-[10px] font-bold" data-i18n="before_item_4_status">Kelmadi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-rose-100/50 text-rose-900 text-xs font-semibold flex items-center space-x-2 border border-rose-200/70">
+            <i data-lucide="frown" class="w-4 h-4 text-rose-600 shrink-0"></i>
+            <span data-i18n="before_summary">Natija: Yo‘qotilgan vaqt, bo‘sh qolgan kabinet va oylik 30-40% daromad boy berilishi.</span>
+          </div>
+        </div>
+
+        <!-- CENTER CONNECTOR BADGE -->
+        <div class="hidden lg:flex lg:col-span-2 flex-col items-center justify-center text-center space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-calblue-500 text-white shadow-lg shadow-calblue-500/30 flex items-center justify-center font-bold">
+            <i data-lucide="arrow-right" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-black text-calblue-900 tracking-tight" data-i18n="connector_title">Bandla bilan<br />boshqacha</span>
+          <span class="text-[10px] text-slate-400 font-medium" data-i18n="connector_sub">100% tartib</span>
+        </div>
+
+        <!-- RIGHT: HOZIR (Bandla bilan) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-200 shadow-xl shadow-emerald-500/10 flex flex-col justify-between space-y-5 text-left relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-2xl -z-0"></div>
+          
+          <div class="space-y-4 relative z-10">
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100/70 text-emerald-800 text-xs font-black uppercase tracking-wider">
+                <span data-i18n="after_badge">🟢 HOZIR</span>
+                <span class="text-emerald-400 font-normal">|</span>
+                <span class="font-bold text-emerald-900" data-i18n="after_subbadge">Bandla bilan</span>
+              </div>
+              <span class="text-xs text-emerald-600 font-bold flex items-center space-x-1">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                <span data-i18n="after_tag">Avtomat tizim</span>
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-black text-slate-900 leading-tight" data-i18n="after_title">
+                Tasdiqlangan qabullar.<br />
+                Tinch va daromadli biznes.
+              </h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="after_sub">
+                Mijozlar oldindan depozit to‘laydi, Telegram eslatmalar o‘z vaqtida boradi, to‘lovlar Click va Payme orqali hisobingizga tushadi.
+              </p>
+            </div>
+
+            <div class="space-y-2.5 pt-2">
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-emerald-50/50 border border-emerald-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-[11px] shrink-0">
+                    09:00
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">Dilshod Karimov</div>
+                    <div class="text-[10px] text-emerald-600 font-medium" data-i18n="after_item_1_sub">Depozit to‘langan (50,000 UZS)</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold flex items-center space-x-1">
+                  <i data-lucide="check" class="w-3 h-3"></i>
+                  <span data-i18n="after_item_status">Tasdiqlangan</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-emerald-50/50 border border-emerald-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-[11px] shrink-0">
+                    10:30
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">Madina Aliyeva</div>
+                    <div class="text-[10px] text-emerald-600 font-medium" data-i18n="after_item_2_sub">100% to‘liq to‘lov (Click)</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold flex items-center space-x-1">
+                  <i data-lucide="check" class="w-3 h-3"></i>
+                  <span data-i18n="after_item_status">Tasdiqlangan</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-emerald-50/50 border border-emerald-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-[11px] shrink-0">
+                    12:00
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">Sardorbek N.</div>
+                    <div class="text-[10px] text-emerald-600 font-medium" data-i18n="after_item_3_sub">Telegram eslatmasi yuborildi</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold flex items-center space-x-1">
+                  <i data-lucide="check" class="w-3 h-3"></i>
+                  <span data-i18n="after_item_status">Tasdiqlangan</span>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-emerald-50/50 border border-emerald-100 text-xs">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-[11px] shrink-0">
+                    14:00
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-800">Nilufar Hasanova</div>
+                    <div class="text-[10px] text-emerald-600 font-medium" data-i18n="after_item_4_sub">Depozit to‘langan (Payme)</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold flex items-center space-x-1">
+                  <i data-lucide="check" class="w-3 h-3"></i>
+                  <span data-i18n="after_item_status">Tasdiqlangan</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-emerald-100/60 text-emerald-900 text-xs font-semibold flex items-center space-x-2 border border-emerald-300/70">
+            <i data-lucide="smile" class="w-4 h-4 text-emerald-700 shrink-0"></i>
+            <span data-i18n="after_summary">Natija: 0 ta bo‘sh oraliq, 95%+ mijozlar qabulga o‘z vaqtida kelishi, xotirjam va barqaror daromad!</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOLUTIONS / USE CASES FOR EVERY INDUSTRY -->
+  <section id="solutions" class="py-20 px-4 sm:px-8 bg-slate-50 border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto space-y-12 text-center">
+      <div class="space-y-3 max-w-3xl mx-auto">
+        <span class="text-xs font-bold text-calblue-600 tracking-wider uppercase" data-i18n="sol_badge">Barcha sohalar uchun</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-calblue-900 tracking-tight" data-i18n="sol_title">
+          Vaqtini qadrlaydigan har qanday biznes uchun
+        </h2>
+        <p class="text-slate-600 text-base" data-i18n="sol_sub">
+          Bandla faqat shifokorlar uchun emas — o‘z xizmatini, bilimini yoki xonasini vaqtbay sotadigan har qanday ekspert va kompaniyaga moslashadi.
+        </p>
+      </div>
+
+      <!-- Industry Grid (6 Categories) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+        
+        <!-- 1. Tibbiyot -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200/80 cal-card-hover transition space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-calblue-500 flex items-center justify-center font-bold text-xl">
+            <i data-lucide="stethoscope" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-calblue-900" data-i18n="ind_1_title">Klinikalar va Shifokorlar</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="ind_1_desc">
+              Stomatologiyalar, terapevtlar va ko'p tarmoqli klinikalar. Bemorlar bo'sh slotni tanlaydi, depozit to'laydi va eslatma oladi.
+            </p>
+          </div>
+          <div class="text-xs font-semibold text-calblue-600 flex items-center space-x-1">
+            <span data-i18n="ind_1_tag">Bemor kelmasligi 80% ga kamayadi</span>
+          </div>
+        </div>
+
+        <!-- 2. Go'zallik -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200/80 cal-card-hover transition space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-pink-50 text-pink-500 flex items-center justify-center font-bold text-xl">
+            <i data-lucide="scissors" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-calblue-900" data-i18n="ind_2_title">Go'zallik & Salonlar</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="ind_2_desc">
+              Kosmetologlar, lazer epilyatsiyasi, barbershoplar va stilistlar. Instagram bio'ga havola qo'ying, mijozlar navbatini o'zi band qiladi.
+            </p>
+          </div>
+          <div class="text-xs font-semibold text-pink-600 flex items-center space-x-1">
+            <span data-i18n="ind_2_tag">Direct'dagi yozishmalarsiz avtomat</span>
+          </div>
+        </div>
+
+        <!-- 3. Yuridik -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200/80 cal-card-hover transition space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xl">
+            <i data-lucide="scale" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-calblue-900" data-i18n="ind_3_title">Advokatlar & Buxgalterlar</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="ind_3_desc">
+              Pullik yuridik konsultatsiyalar va soliq tahlili. Har bir 45 daqiqalik uchrashuv uchun to'lovni 100% oldindan oling.
+            </p>
+          </div>
+          <div class="text-xs font-semibold text-amber-700 flex items-center space-x-1">
+            <span data-i18n="ind_3_tag">100% kafolatlangan to'lov</span>
+          </div>
+        </div>
+
+        <!-- 4. Ta'lim -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200/80 cal-card-hover transition space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl">
+            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-calblue-900" data-i18n="ind_4_title">Repetitorlar & Kouchlar</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="ind_4_desc">
+              IELTS, SAT repetitorlari va biznes-kouchlar. Diagnostik testlar va 1-on-1 dars slotlarini oson boshqaring.
+            </p>
+          </div>
+          <div class="text-xs font-semibold text-emerald-700 flex items-center space-x-1">
+            <span data-i18n="ind_4_tag">Dars jadvallarini avtomatlashtirish</span>
+          </div>
+        </div>
+
+        <!-- 5. B2B Konsalting -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200/80 cal-card-hover transition space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xl">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-calblue-900" data-i18n="ind_5_title">B2B Konsalting & Agentliklar</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="ind_5_desc">
+              AI workflow, CRM va IT auditi (xuddi GPTify kabi). Potensial korporativ mijozlar bilan «Discovery Call» uchrashuvlari.
+            </p>
+          </div>
+          <div class="text-xs font-semibold text-purple-700 flex items-center space-x-1">
+            <span data-i18n="ind_5_tag">B2B sales closing konversiyasi 2x</span>
+          </div>
+        </div>
+
+        <!-- 6. Studiyalar -->
+        <div class="bg-white p-7 rounded-3xl border border-slate-200/80 cal-card-hover transition space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold text-xl">
+            <i data-lucide="mic" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-calblue-900" data-i18n="ind_6_title">Fotostudiya & Podkast Zallari</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed" data-i18n="ind_6_desc">
+              Ovoz yozish, fotostudiya va kovorking muzokara xonalari. Soatbay ijara uchun to'liq oldindan to'lov qabul qiling.
+            </p>
+          </div>
+          <div class="text-xs font-semibold text-cyan-700 flex items-center space-x-1">
+            <span data-i18n="ind_6_tag">Bo'sh qolmaydigan zallar</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (3 SIMPLE STEPS) -->
+  <section id="how-it-works" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto text-center space-y-16">
+    <div class="space-y-3 max-w-2xl mx-auto">
+      <span class="text-xs font-bold text-calblue-600 tracking-wider uppercase" data-i18n="how_badge">Oddiy va tez</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-calblue-900 tracking-tight" data-i18n="how_title">
+        Bandla qanday ishlaydi?
+      </h2>
+      <p class="text-slate-600 text-base" data-i18n="how_sub">
+        Hech qanday murakkab dasturlashsiz, atigi 3 qadamda to'liq avtomatlashgan navbat tizimiga ega bo'lasiz.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <!-- Step 1 -->
+      <div class="p-8 rounded-3xl bg-white border border-slate-200/80 space-y-4 cal-shadow">
+        <div class="w-10 h-10 rounded-xl bg-calblue-500 text-white font-black text-base flex items-center justify-center">
+          1
+        </div>
+        <h3 class="font-bold text-lg text-calblue-900" data-i18n="step_1_title">Jadval va narxingizni belgilang</h3>
+        <p class="text-xs text-slate-500 leading-relaxed" data-i18n="step_1_desc">
+          Qaysi kunlari, soat nechidan nechigacha ishlashingizni, xizmat davomiyligi (masalan: 30 min) va depozit miqdorini (masalan: 50,000 UZS) kiriting.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="p-8 rounded-3xl bg-white border border-slate-200/80 space-y-4 cal-shadow">
+        <div class="w-10 h-10 rounded-xl bg-calblue-500 text-white font-black text-base flex items-center justify-center">
+          2
+        </div>
+        <h3 class="font-bold text-lg text-calblue-900" data-i18n="step_2_title">Havolangizni ulashing</h3>
+        <p class="text-xs text-slate-500 leading-relaxed" data-i18n="step_2_desc">
+          Shaxsiy havolangizni (<code class="text-calblue-600 font-mono">bandla.gptify.uz/@ismingiz</code> yoki Telegram bot havolasini) Instagram bio, Telegram kanal yoki veb-saytingizga joylang.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="p-8 rounded-3xl bg-white border border-slate-200/80 space-y-4 cal-shadow">
+        <div class="w-10 h-10 rounded-xl bg-calblue-500 text-white font-black text-base flex items-center justify-center">
+          3
+        </div>
+        <h3 class="font-bold text-lg text-calblue-900" data-i18n="step_3_title">Depozit tushadi va qabul tasdiqlanadi</h3>
+        <p class="text-xs text-slate-500 leading-relaxed" data-i18n="step_3_desc">
+          Mijoz Payme/Click orqali to'laydi. Sizga va mijozga Telegramda chipta keladi. Qabuldan 24 soat va 2 soat oldin avtomatik eslatma yuboriladi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE ROI CALCULATOR -->
+  <section id="no-show-calc" class="py-20 px-4 sm:px-8 bg-calblue-900 text-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto space-y-12 relative z-10">
+      
+      <div class="text-center space-y-3 max-w-2xl mx-auto">
+        <span class="text-xs font-bold text-calblue-100 tracking-wider uppercase" data-i18n="calc_badge">Foyda Kalkulyatori</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="calc_title">
+          Kelmagan mijozlar sababli oyiga qancha yo'qotasiz?
+        </h2>
+        <p class="text-calblue-100 text-sm" data-i18n="calc_sub">
+          O'zbekistonda oldindan to'lovsiz yozilgan qabullarning o'rtacha <b>30-40% qismi</b> bekor bo'ladi.
+        </p>
+      </div>
+
+      <!-- Clean White Calculator Card -->
+      <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-10 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Controls -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+              <span data-i18n="calc_label_doc">Mutaxassislar (shifokorlar / ustalar) soni:</span>
+              <span id="calc-doctors-val" class="text-calblue-600 font-extrabold text-sm">3 nafar</span>
+            </div>
+            <input id="calc-doctors" type="range" min="1" max="20" value="3" class="w-full accent-calblue-500 cursor-pointer" oninput="updateCalculator()" />
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+              <span data-i18n="calc_label_vis">Kunlik qabullar soni (1 mutaxassis uchun):</span>
+              <span id="calc-visits-val" class="text-calblue-600 font-extrabold text-sm">8 ta</span>
+            </div>
+            <input id="calc-visits" type="range" min="3" max="25" value="8" class="w-full accent-calblue-500 cursor-pointer" oninput="updateCalculator()" />
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+              <span data-i18n="calc_label_price">O'rtacha xizmat / qabul narxi:</span>
+              <span id="calc-price-val" class="text-calblue-600 font-extrabold text-sm">200,000 UZS</span>
+            </div>
+            <input id="calc-price" type="range" min="50000" max="1000000" step="25000" value="200000" class="w-full accent-calblue-500 cursor-pointer" oninput="updateCalculator()" />
+          </div>
+        </div>
+
+        <!-- Output Box -->
+        <div class="lg:col-span-5 bg-slate-50 p-6 sm:p-7 rounded-2xl border border-slate-200 text-center space-y-4">
+          <p class="text-xs text-slate-500 font-medium" data-i18n="calc_loss_lbl">Bemor/mijoz kelmasligi tufayli oylik yo'qotishingiz:</p>
+          <div id="calc-monthly-loss" class="text-2xl sm:text-3xl font-black text-rose-600">
+            36,000,000 UZS
+          </div>
+          <div class="pt-3 border-t border-slate-200">
+            <p class="text-[11px] text-emerald-700 font-bold mb-1" data-i18n="calc_save_lbl">Bandla orqali saqlanadigan daromad:</p>
+            <div id="calc-saved-val" class="text-xl font-extrabold text-emerald-600">+28,800,000 UZS / oy</div>
+          </div>
+          <a href="https://t.me/GPTifyUzAdminbot" target="_blank" class="inline-block w-full py-3 rounded-xl bg-calblue-500 hover:bg-calblue-600 text-white font-bold text-xs shadow-md transition" data-i18n="calc_cta">
+            Zararlarni to'xtatish &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section id="comparison" class="py-20 px-4 sm:px-8 max-w-6xl mx-auto space-y-12 text-center">
+    <div class="space-y-3 max-w-2xl mx-auto">
+      <span class="text-xs font-bold text-calblue-600 tracking-wider uppercase" data-i18n="comp_badge">Nega aynan Bandla?</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-calblue-900 tracking-tight" data-i18n="comp_title">
+        Muqobillar bilan to'g'ridan-to'g'ri taqqoslash
+      </h2>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs border-collapse">
+        <thead>
+          <tr class="border-b-2 border-slate-200 text-slate-700 text-xs">
+            <th class="py-4 px-4 font-bold" data-i18n="th_feature">Imkoniyat</th>
+            <th class="py-4 px-4 font-extrabold text-calblue-600 bg-blue-50/70 rounded-t-2xl">Bandla</th>
+            <th class="py-4 px-4 font-semibold text-slate-500">Calendly</th>
+            <th class="py-4 px-4 font-semibold text-slate-500">Altegio (Yclients)</th>
+            <th class="py-4 px-4 font-semibold text-slate-500" data-i18n="th_bot">Oddiy Bot</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 text-slate-600">
+          <tr>
+            <td class="py-4 px-4 font-bold text-slate-900" data-i18n="row_1_title">Click & Payme depoziti</td>
+            <td class="py-4 px-4 font-bold text-emerald-600 bg-blue-50/70" data-i18n="row_1_bandla">✅ To'liq integratsiya</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_1_cal">❌ Faqat Stripe/PayPal</td>
+            <td class="py-4 px-4 text-amber-600" data-i18n="row_1_alt">⚠️ Qisman (qimmat)</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_1_bot">❌ Yo'q</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 font-bold text-slate-900" data-i18n="row_2_title">Moslashuvchan to'lov (Depozit / To'liq / Joyida)</td>
+            <td class="py-4 px-4 font-bold text-emerald-600 bg-blue-50/70" data-i18n="row_2_bandla">✅ 3 xil tanlov erkinligi</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_2_cal">❌ Faqat 100% to'lov</td>
+            <td class="py-4 px-4 text-amber-600" data-i18n="row_2_alt">⚠️ Cheklangan</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_2_bot">❌ Yo'q</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 font-bold text-slate-900" data-i18n="row_3_title">Telegram Mini App (TMA)</td>
+            <td class="py-4 px-4 font-bold text-emerald-600 bg-blue-50/70" data-i18n="row_3_bandla">✅ 1-bosishda ochiladi</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_3_cal">❌ Faqat brauzer</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_3_alt">❌ Faqat alohida ilova</td>
+            <td class="py-4 px-4 text-amber-600" data-i18n="row_3_bot">⚠️ Matnli menyular</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 font-bold text-slate-900" data-i18n="row_4_title">Telegramda 24h va 2h oldin eslatma</td>
+            <td class="py-4 px-4 font-bold text-emerald-600 bg-blue-50/70" data-i18n="row_4_bandla">✅ Bepul bot orqali</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_4_cal">❌ Faqat Email / SMS</td>
+            <td class="py-4 px-4 text-amber-600" data-i18n="row_4_alt">⚠️ Pullik SMS paketlar</td>
+            <td class="py-4 px-4 text-amber-600" data-i18n="row_4_bot">⚠️ Murakkab</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 font-bold text-slate-900" data-i18n="row_5_title">O'zbek, Rus va Ingliz tillari</td>
+            <td class="py-4 px-4 font-bold text-emerald-600 bg-blue-50/70" data-i18n="row_5_bandla">✅ 100% 3 tilda to'liq</td>
+            <td class="py-4 px-4 text-rose-500" data-i18n="row_5_cal">❌ Faqat ingliz/rus</td>
+            <td class="py-4 px-4 text-amber-600" data-i18n="row_5_alt">⚠️ O'zbek tili cheklangan</td>
+            <td class="py-4 px-4 text-slate-400" data-i18n="row_5_bot">Qo'lda yoziladi</td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 font-bold text-slate-900" data-i18n="row_6_title">Oylik abonent to'lovi</td>
+            <td class="py-4 px-4 font-bold text-calblue-600 bg-blue-50/70 rounded-b-2xl" data-i18n="row_6_bandla">99,000 UZS / oy</td>
+            <td class="py-4 px-4 text-slate-500" data-i18n="row_6_cal">~200,000 UZS / user</td>
+            <td class="py-4 px-4 text-slate-500" data-i18n="row_6_alt">~450,000 UZS + SMS</td>
+            <td class="py-4 px-4 text-slate-500" data-i18n="row_6_bot">10-25 mln UZS qurish</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="py-20 px-4 sm:px-8 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto space-y-12 text-center">
+      
+      <div class="space-y-3 max-w-2xl mx-auto">
+        <span class="text-xs font-bold text-calblue-600 tracking-wider uppercase" data-i18n="price_badge">Shaffof Tariflar</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-calblue-900 tracking-tight" data-i18n="price_title">
+          Sizning biznesingizga mos narxlar
+        </h2>
+        <p class="text-slate-600 text-base" data-i18n="price_sub">
+          14 kunlik bepul sinov davri. Karta kiritish talab etilmaydi.
+        </p>
+
+        <!-- Toggle monthly / annual -->
+        <div class="inline-flex items-center space-x-2 bg-white p-1 rounded-xl border border-slate-200 shadow-sm mt-4 text-xs font-semibold">
+          <button id="bill-monthly-btn" onclick="setBilling('monthly')" class="px-4 py-2 rounded-lg bg-calblue-500 text-white transition" data-i18n="price_toggle_month">Oylik to'lov</button>
+          <button id="bill-annual-btn" onclick="setBilling('annual')" class="px-4 py-2 rounded-lg text-slate-600 hover:text-calblue-600 transition">
+            <span data-i18n="price_toggle_year">Yillik to'lov</span> <span class="text-[10px] text-emerald-600 font-bold ml-1" data-i18n="price_discount_tag">(-20% chegirma)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch text-left">
+        
+        <!-- 1. Boshlang'ich (Free) -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 cal-shadow flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="plan_1_name">Boshlang'ich</span>
+            <div>
+              <div class="text-4xl font-extrabold text-calblue-900" data-i18n="plan_1_price">0 UZS</div>
+              <div class="text-xs text-slate-500 mt-1" data-i18n="plan_1_period">Abadiy bepul</div>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed" data-i18n="plan_1_desc">
+              Yangi boshlayotgan mutaxassislar va bepul konsultatsiya beruvchilar uchun.
+            </p>
+            <ul class="space-y-3 text-xs text-slate-700 pt-4 border-t border-slate-100">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p1_perk_1">1 ta mutaxassis profili</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p1_perk_2">Cheksiz bepul qabullar</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p1_perk_3">Shaxsiy havola (bandla.gptify.uz/@ism)</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p1_perk_4">Google Calendar integratsiyasi</span>
+              </li>
+              <li class="flex items-center space-x-2 text-slate-400 line-through">
+                <i data-lucide="x" class="w-4 h-4 text-slate-300 shrink-0"></i>
+                <span data-i18n="p1_perk_5">Click & Payme depozit to'lovlari</span>
+              </li>
+            </ul>
+          </div>
+          <a href="https://t.me/GPTifyUzAdminbot" target="_blank" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs text-center transition flex items-center justify-center space-x-1.5" data-i18n="plan_1_btn">
+            <i data-lucide="send" class="w-3.5 h-3.5 text-calblue-500"></i>
+            <span>Demo</span>
+          </a>
+        </div>
+
+        <!-- 2. Yakkaxon Pro (Reduced to 99,000 UZS) -->
+        <div class="bg-white rounded-3xl p-8 border-2 border-calblue-500 shadow-xl flex flex-col justify-between space-y-6 relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-calblue-500 text-white text-[10px] font-black uppercase tracking-wider shadow-md" data-i18n="plan_2_badge">
+            Eng Ommabop Tanlov
+          </div>
+          
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-calblue-600 uppercase tracking-wider" data-i18n="plan_2_name">Yakkaxon Pro</span>
+            <div>
+              <div class="flex items-baseline space-x-1">
+                <span id="price-pro" class="text-4xl font-extrabold text-calblue-900">99,000 UZS</span>
+                <span class="text-xs text-slate-500" data-i18n="plan_per_month">/ oy</span>
+              </div>
+              <div id="sub-price-pro" class="text-xs text-slate-500 mt-1" data-i18n="plan_2_period">Oylik to'lov</div>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed" data-i18n="plan_2_desc">
+              Xususiy shifokorlar, kosmetologlar, advokatlar va B2B ekspertlar uchun to'liq avtomatlashtirish.
+            </p>
+            <ul class="space-y-3 text-xs text-slate-700 pt-4 border-t border-slate-100">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span class="font-bold text-slate-900" data-i18n="p2_perk_1">Click & Payme orqali depozit qabul qilish</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p2_perk_2">Telegram orqali 24h va 2h oldin eslatmalar</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p2_perk_3">Telegram Mini App + Web sahifa</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p2_perk_4">Double-booking (Slot lock) himoyasi</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p2_perk_5">Shaxsiy brending & logo</span>
+              </li>
+            </ul>
+          </div>
+          <a href="https://t.me/GPTifyUzAdminbot" target="_blank" class="w-full py-3.5 rounded-xl bg-calblue-500 hover:bg-calblue-600 text-white font-bold text-xs text-center shadow-md shadow-calblue-500/25 transition flex items-center justify-center space-x-1.5" data-i18n="plan_2_btn">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Demo</span>
+          </a>
+        </div>
+
+        <!-- 3. Klinika & Jamoa (Reduced to 299,000 UZS) -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 cal-shadow flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="plan_3_name">Klinika & Jamoa</span>
+            <div>
+              <div class="flex items-baseline space-x-1">
+                <span id="price-clinic" class="text-4xl font-extrabold text-calblue-900">299,000 UZS</span>
+                <span class="text-xs text-slate-500" data-i18n="plan_per_month">/ oy</span>
+              </div>
+              <div id="sub-price-clinic" class="text-xs text-slate-500 mt-1" data-i18n="plan_3_period">5 tagacha mutaxassis uchun</div>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed" data-i18n="plan_3_desc">
+              Klinikalar, go'zallik salonlari, yuridik firmalar va o'quv markazlari uchun.
+            </p>
+            <ul class="space-y-3 text-xs text-slate-700 pt-4 border-t border-slate-100">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p3_perk_1">Barcha Pro imkoniyatlari</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p3_perk_2">Saytga joylanadigan Embed Vidjet</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p3_perk_3">Klinika administratori boshqaruv paneli</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p3_perk_4">Moliyaviy tushumlar va depozit hisoboti</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span data-i18n="p3_perk_5">24/7 shaxsiy menejer</span>
+              </li>
+            </ul>
+          </div>
+          <a href="https://t.me/GPTifyUzAdminbot" target="_blank" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs text-center transition flex items-center justify-center space-x-1.5" data-i18n="plan_3_btn">
+            <i data-lucide="send" class="w-3.5 h-3.5 text-calblue-500"></i>
+            <span>Demo</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="py-20 px-4 sm:px-8 max-w-4xl mx-auto space-y-10">
+    <div class="text-center space-y-3">
+      <h2 class="text-3xl font-extrabold text-calblue-900" data-i18n="faq_title">Ko'p so'raladigan savollar</h2>
+      <p class="text-slate-600 text-sm" data-i18n="faq_sub">Tizim bo'yicha eng muhim ma'lumotlar</p>
+    </div>
+
+    <div class="space-y-4 text-xs">
+      <div class="p-5 rounded-2xl bg-white border border-slate-200 cal-shadow space-y-2">
+        <h3 class="font-bold text-sm text-slate-900" data-i18n="faq_q1">1. Mijozlar uchrashuv belgilashi uchun qanday ilova kerak?</h3>
+        <p class="text-slate-600 leading-relaxed" data-i18n="faq_a1">
+          Hech qanday maxsus ilova kerak emas. Mijoz havolani brauzerda (Chrome, Safari) ochsa, xuddi Calendly kabi veb-sahifa ochiladi. Agar Telegramda ochsa, Telegram Mini App ichida silliq ishlaydi.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white border border-slate-200 cal-shadow space-y-2">
+        <h3 class="font-bold text-sm text-slate-900" data-i18n="faq_q2">2. To'langan depozit puli qayerga tushadi?</h3>
+        <p class="text-slate-600 leading-relaxed" data-i18n="faq_a2">
+          Siz o'z Click Merchant yoki Payme Business ma'lumotlaringizni kiritasiz. Bemor to'lagan barcha to'lovlar to'g'ridan-to'g'ri Sizning bank hisobingizga tushadi. Bandla qo'shimcha komissiya olmaydi.
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white border border-slate-200 cal-shadow space-y-2">
+        <h3 class="font-bold text-sm text-slate-900" data-i18n="faq_q3">3. Agar mijoz qabulga kela olmasa nima bo'ladi?</h3>
+        <p class="text-slate-600 leading-relaxed" data-i18n="faq_a3">
+          Siz qabul siyosatingizni belgilaysiz (masalan, 12 soat oldin bekor qilinsa depozit qaytariladi yoki vaqtni boshqa kunga ko'chirish imkoni beriladi).
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white border border-slate-200 cal-shadow space-y-2">
+        <h3 class="font-bold text-sm text-slate-900" data-i18n="faq_q4">4. Depozit olish majburiymi? Depozitsiz ham qabul qilsa bo'ladimi?</h3>
+        <p class="text-slate-600 leading-relaxed" data-i18n="faq_a4">
+          Yo'q, mutlaqo majburiy emas! Siz har bir xizmatingiz uchun to'lov shaklini o'zingiz belgilaysiz: <b>Kafolatli depozit</b> (masalan 50,000 UZS), <b>100% to'liq to'lov</b> yoki <b>Joyida to'lash (depozitsiz - 0 UZS)</b>. Shuningdek, mijozning o'ziga ushbu 3 tadan birini erkin tanlash imkoniyatini berishingiz mumkin!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA BANNER: Leads to Telegram Bot Demo -->
+  <section class="py-16 px-4 sm:px-8 bg-calblue-50 border-t border-slate-200">
+    <div class="max-w-5xl mx-auto text-center space-y-6">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-calblue-900 tracking-tight" data-i18n="cta_banner_title">
+        Uchrashuvlaringizni bugunoq tartibga soling
+      </h2>
+      <p class="text-base text-slate-600 max-w-xl mx-auto" data-i18n="cta_banner_sub">
+        Telefon qo‘ng‘iroqlari va tartibsiz yozishmalarga vaqtingizni sarflamang. Zamonaviy onlayn taqvim orqali qabullarni avtomatlashtiring va mijozlaringizga eng qulay xizmatni taqdim eting.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://t.me/GPTifyUzAdminbot" target="_blank" class="px-8 py-4 rounded-xl bg-calblue-500 hover:bg-calblue-600 text-white font-bold text-sm shadow-xl shadow-calblue-500/25 transition flex items-center space-x-2" data-i18n="cta_banner_btn1">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Demo olish →</span>
+        </a>
+        <a href="https://t.me/shukhrat_iskandarov" target="_blank" class="px-6 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-bold text-sm transition" data-i18n="cta_banner_btn2">
+          Mutaxassis bilan gaplashish
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-8 px-4 sm:px-8 text-xs text-slate-500 text-center">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2.5">
+        <img src="/assets/bandla_symbol.png" alt="Bandla" class="h-6 w-auto crisp-img" />
+        <span class="font-bold text-slate-800 text-sm">Bandla</span>
+        <span class="text-slate-500" data-i18n="footer_desc">— <a href="https://www.gptify.uz" target="_blank" class="hover:text-calblue-600 underline font-semibold text-slate-700">GPTify.uz</a> ekotizimi loyihasi (bandla.gptify.uz).</span>
+      </div>
+      <div class="flex items-center space-x-6 text-slate-600 font-medium">
+        <a href="/app.html" class="hover:text-calblue-500" data-i18n="footer_link_app">Ilovani ochish</a>
+        <a href="#pricing" class="hover:text-calblue-500" data-i18n="footer_link_pricing">Tariflar</a>
+        <a href="#solutions" class="hover:text-calblue-500" data-i18n="footer_link_solutions">Sohalar</a>
+        <a href="https://www.gptify.uz" target="_blank" class="hover:text-calblue-500 font-bold text-calblue-600">GPTify.uz ↗</a>
+        <a href="https://t.me/shukhrat_iskandarov" class="hover:text-calblue-500" data-i18n="footer_link_contact">Bog'lanish</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: I18N DICTIONARY & LOGIC -->
+  <script>
+    const translations = {
+  "uz": {
+    "banner_badge": "Yangi",
+    "banner_text": "O‘zbekiston bo‘ylab Telegram Mini App va Veb orqali qabullarni avtomatlashtiring!",
+    "banner_link": "Demo olish →",
+    "nav_solutions": "Sohalar",
+    "nav_comparison": "Avval vs Hozir",
+    "nav_how": "Qanday ishlaydi",
+    "nav_calc": "Kalkulyator",
+    "nav_pricing": "Tariflar",
+    "nav_app": "Jonli Ilova (App)",
+    "nav_demo": "Demo",
+    "hero_badge": "Vaqtni qadrlaydigan mutaxassislar va servislar uchun",
+    "hero_title": "Har bir ish soatingizni kafolatli daromadga aylantiring.",
+    "hero_sub": "Bo‘sh o‘tgan soatlar, kelmay qoladigan mijozlar va tinimsiz qo‘ng‘iroqlarga chek qo‘ying. Mijozlaringiz Telegram yoki vebda 1 daqiqada o‘zi yoziladi, to‘lov shaklini esa o‘zingiz belgilaysiz (joyida, depozit yoki to‘liq).",
+    "bullet_1": "Doimiy yozishmalarsiz",
+    "bullet_2": "Telegram Mini App",
+    "bullet_3": "Moslashuvchan to‘lov",
+    "hero_input_ph": "Telefon raqamingiz (+998 ...)",
+    "hero_cta": "Demo olish",
+    "hero_perk_1": "14 kun bepul sinov",
+    "hero_perk_2": "Karta kiritish shart emas",
+    "hero_perk_3": "5 daqiqada sozlanadi",
+    "hero_trust": "O'zbekistondagi 500+ mutaxassislar va servislar ishonchi bilan",
+    "bot_header_sub": "bot • onlayn",
+    "bot_msg_1": "Assalomu alaykum! 👋<br /><b>Bandla</b> orqali qabulga yozilishingiz mumkin. Qaysi xizmat kerak?",
+    "bot_user_service": "Konsultatsiya (30 min)",
+    "bot_slot_title": "Qulay vaqtni tanlang:",
+    "bot_slot_1": "Bugun, 14:00",
+    "bot_slot_2": "Bugun, 16:00",
+    "bot_deposit_title": "Qabulni tasdiqlash:",
+    "bot_deposit_val": "50 000 so‘m depozit",
+    "bot_paid": "To‘lov tasdiqlandi!",
+    "bot_input_ph": "Xabar yozing...",
+    "steps_title": "Mijoz uchun 4 oddiy qadam:",
+    "steps_time": "1 daqiqada",
+    "step_1": "Xizmatni tanlaydi",
+    "step_2": "Vaqtni tanlaydi",
+    "step_3": "Depozit to‘laydi",
+    "step_4": "Qabul tasdiqlanadi",
+    "steps_demo": "Jonli test",
+    "diff_badge": "Farqni amalda his eting",
+    "diff_title": "Qabullarni boshqarish: Avval va Hozir",
+    "diff_sub": "Mijozlar bilan qo‘lda yozishmalar biznesingiz vaqtini qanday o‘g‘irlayotganini va Bandla bilan qanday xotirjamlikka erishishingizni ko‘ring.",
+    "before_badge": "🔴 AVVAL",
+    "before_subbadge": "Qo‘lda boshqaruv",
+    "before_tag": "Bosh og‘rig‘i",
+    "before_title": "Ko‘p qo‘ng‘iroq.<br />Ko‘p bekor bo‘ladigan qabul.",
+    "before_sub": "Vaqt ketadi, mijozlar unutiladi, bo‘sh kelishuvlar biznesingizga bevosita zarar yetkazadi.",
+    "before_item_1_sub": "Qabul haqida so‘radi, javob bermadi",
+    "before_item_1_status": "Javobsiz",
+    "before_item_2_sub": "Vaqtni o‘zgartirmoqchi edi",
+    "before_item_2_status": "Bekor qildi",
+    "before_item_3_sub": "«Kela olmayman, keyingi haftaga suring»",
+    "before_item_3_status": "Bekor qildi",
+    "before_item_4_sub": "Belgilangan vaqtda kelmadi (No-show)",
+    "before_item_4_status": "Kelmadi",
+    "before_summary": "Natija: Yo‘qotilgan vaqt, bo‘sh qolgan kabinet va oylik 30-40% daromad boy berilishi.",
+    "connector_title": "Bandla bilan<br />boshqacha",
+    "connector_sub": "100% tartib",
+    "after_badge": "🟢 HOZIR",
+    "after_subbadge": "Bandla bilan",
+    "after_tag": "Avtomat tizim",
+    "after_title": "Tasdiqlangan qabullar.<br />Tinch va daromadli biznes.",
+    "after_sub": "Mijozlar oldindan depozit to‘laydi, Telegram eslatmalar o‘z vaqtida boradi, to‘lovlar Click va Payme orqali hisobingizga tushadi.",
+    "after_item_1_sub": "Depozit to‘langan (50,000 UZS)",
+    "after_item_2_sub": "100% to‘liq to‘lov (Click)",
+    "after_item_3_sub": "Telegram eslatmasi yuborildi",
+    "after_item_4_sub": "Depozit to‘langan (Payme)",
+    "after_item_status": "Tasdiqlangan",
+    "after_summary": "Natija: 0 ta bo‘sh oraliq, 95%+ mijozlar qabulga o‘z vaqtida kelishi, xotirjam va barqaror daromad!",
+    "sol_badge": "Barcha sohalar uchun",
+    "sol_title": "Vaqtini qadrlaydigan har qanday biznes uchun",
+    "sol_sub": "Bandla faqat shifokorlar uchun emas — o‘z xizmatini, bilimini yoki xonasini vaqtbay sotadigan har qanday ekspert va kompaniyaga moslashadi.",
+    "ind_1_title": "Klinikalar va Shifokorlar",
+    "ind_1_desc": "Stomatologiyalar, terapevtlar va ko'p tarmoqli klinikalar. Bemorlar bo'sh slotni tanlaydi, depozit to'laydi va eslatma oladi.",
+    "ind_1_tag": "Bemor kelmasligi 80% ga kamayadi",
+    "ind_2_title": "Go'zallik & Salonlar",
+    "ind_2_desc": "Kosmetologlar, lazer epilyatsiyasi, barbershoplar va stilistlar. Instagram bio'ga havola qo'ying, mijozlar navbatini o'zi band qiladi.",
+    "ind_2_tag": "Direct'dagi yozishmalarsiz avtomat",
+    "ind_3_title": "Advokatlar & Buxgalterlar",
+    "ind_3_desc": "Pullik yuridik konsultatsiyalar va soliq tahlili. Har bir 45 daqiqalik uchrashuv uchun to'lovni 100% oldindan oling.",
+    "ind_3_tag": "100% kafolatlangan to'lov",
+    "ind_4_title": "Repetitorlar & Kouchlar",
+    "ind_4_desc": "IELTS, SAT repetitorlari va biznes-kouchlar. Diagnostik testlar va 1-on-1 dars slotlarini oson boshqaring.",
+    "ind_4_tag": "Dars jadvallarini avtomatlashtirish",
+    "ind_5_title": "B2B Konsalting & Agentliklar",
+    "ind_5_desc": "AI workflow, CRM va IT auditi (xuddi GPTify kabi). Potensial korporativ mijozlar bilan «Discovery Call» uchrashuvlari.",
+    "ind_5_tag": "B2B sales closing konversiyasi 2x",
+    "ind_6_title": "Fotostudiya & Podkast Zallari",
+    "ind_6_desc": "Ovoz yozish, fotostudiya va kovorking muzokara xonalari. Soatbay ijara uchun to'liq oldindan to'lov qabul qiling.",
+    "ind_6_tag": "Bo'sh qolmaydigan zallar",
+    "how_badge": "Oddiy va tez",
+    "how_title": "Bandla qanday ishlaydi?",
+    "how_sub": "Hech qanday murakkab dasturlashsiz, atigi 3 qadamda to'liq avtomatlashgan navbat tizimiga ega bo'lasiz.",
+    "step_1_title": "Jadval va narxingizni belgilang",
+    "step_1_desc": "Qaysi kunlari, soat nechidan nechigacha ishlashingizni, xizmat davomiyligi (masalan: 30 min) va depozit miqdorini (masalan: 50,000 UZS) kiriting.",
+    "step_2_title": "Havolangizni ulashing",
+    "step_2_desc": "Shaxsiy havolangizni (bandla.gptify.uz/@ismingiz yoki Telegram bot havolasini) Instagram bio, Telegram kanal yoki veb-saytingizga joylang.",
+    "step_3_title": "Depozit tushadi va qabul tasdiqlanadi",
+    "step_3_desc": "Mijoz Payme/Click orqali to'laydi. Sizga va mijozga Telegramda chipta keladi. Qabuldan 24 soat va 2 soat oldin avtomatik eslatma yuboriladi.",
+    "calc_badge": "Foyda Kalkulyatori",
+    "calc_title": "Kelmagan mijozlar sababli oyiga qancha yo'qotasiz?",
+    "calc_sub": "O'zbekistonda oldindan to'lovsiz yozilgan qabullarning o'rtacha <b>30-40% qismi</b> bekor bo'ladi.",
+    "calc_label_doc": "Mutaxassislar (shifokorlar / ustalar) soni:",
+    "calc_label_vis": "Kunlik qabullar soni (1 mutaxassis uchun):",
+    "calc_label_price": "O'rtacha xizmat / qabul narxi:",
+    "calc_loss_lbl": "Bemor/mijoz kelmasligi tufayli oylik yo'qotishingiz:",
+    "calc_save_lbl": "Bandla orqali saqlanadigan daromad:",
+    "calc_cta": "Zararlarni to'xtatish →",
+    "comp_badge": "Nega aynan Bandla?",
+    "comp_title": "Muqobillar bilan to'g'ridan-to'g'ri taqqoslash",
+    "th_feature": "Imkoniyat",
+    "th_bot": "Oddiy Bot",
+    "row_1_title": "Click & Payme depoziti",
+    "row_1_bandla": "✅ To'liq integratsiya",
+    "row_1_cal": "❌ Faqat Stripe/PayPal",
+    "row_1_alt": "⚠️ Qisman (qimmat)",
+    "row_1_bot": "❌ Yo'q",
+    "row_2_title": "Moslashuvchan to'lov (Depozit / To'liq / Joyida)",
+    "row_2_bandla": "✅ 3 xil tanlov erkinligi",
+    "row_2_cal": "❌ Faqat 100% to'lov",
+    "row_2_alt": "⚠️ Cheklangan",
+    "row_2_bot": "❌ Yo'q",
+    "row_3_title": "Telegram Mini App (TMA)",
+    "row_3_bandla": "✅ 1-bosishda ochiladi",
+    "row_3_cal": "❌ Faqat brauzer",
+    "row_3_alt": "❌ Faqat alohida ilova",
+    "row_3_bot": "⚠️ Matnli menyular",
+    "row_4_title": "Telegramda 24h va 2h oldin eslatma",
+    "row_4_bandla": "✅ Bepul bot orqali",
+    "row_4_cal": "❌ Faqat Email / SMS",
+    "row_4_alt": "⚠️ Pullik SMS paketlar",
+    "row_4_bot": "⚠️ Murakkab",
+    "row_5_title": "O'zbek, Rus va Ingliz tillari",
+    "row_5_bandla": "✅ 100% 3 tilda to'liq",
+    "row_5_cal": "❌ Faqat ingliz/rus",
+    "row_5_alt": "⚠️ O'zbek tili cheklangan",
+    "row_5_bot": "Qo'lda yoziladi",
+    "row_6_title": "Oylik abonent to'lovi",
+    "row_6_bandla": "99,000 UZS / oy",
+    "row_6_cal": "~200,000 UZS / user",
+    "row_6_alt": "~450,000 UZS + SMS",
+    "row_6_bot": "10-25 mln UZS qurish",
+    "price_badge": "Shaffof Tariflar",
+    "price_title": "Sizning biznesingizga mos narxlar",
+    "price_sub": "14 kunlik bepul sinov davri. Karta kiritish talab etilmaydi.",
+    "price_toggle_month": "Oylik to'lov",
+    "price_toggle_year": "Yillik to'lov",
+    "price_discount_tag": "(-20% chegirma)",
+    "plan_per_month": "/ oy",
+    "plan_1_name": "Boshlang'ich",
+    "plan_1_price": "0 UZS",
+    "plan_1_period": "Abadiy bepul",
+    "plan_1_desc": "Yangi boshlayotgan mutaxassislar va bepul konsultatsiya beruvchilar uchun.",
+    "p1_perk_1": "1 ta mutaxassis profili",
+    "p1_perk_2": "Cheksiz bepul qabullar",
+    "p1_perk_3": "Shaxsiy havola (bandla.gptify.uz/@ism)",
+    "p1_perk_4": "Google Calendar integratsiyasi",
+    "p1_perk_5": "Click & Payme depozit to'lovlari",
+    "plan_1_btn": "Demo",
+    "plan_2_badge": "Eng Ommabop Tanlov",
+    "plan_2_name": "Yakkaxon Pro",
+    "plan_2_period": "Oylik to'lov",
+    "plan_2_desc": "Xususiy shifokorlar, kosmetologlar, advokatlar va B2B ekspertlar uchun to'liq avtomatlashtirish.",
+    "p2_perk_1": "Click & Payme orqali depozit qabul qilish",
+    "p2_perk_2": "Telegram orqali 24h va 2h oldin eslatmalar",
+    "p2_perk_3": "Telegram Mini App + Web sahifa",
+    "p2_perk_4": "Double-booking (Slot lock) himoyasi",
+    "p2_perk_5": "Shaxsiy brending & logo",
+    "plan_2_btn": "Demo",
+    "plan_3_name": "Klinika & Jamoa",
+    "plan_3_period": "5 tagacha mutaxassis uchun",
+    "plan_3_desc": "Klinikalar, go'zallik salonlari, yuridik firmalar va o'quv markazlari uchun.",
+    "p3_perk_1": "Barcha Pro imkoniyatlari",
+    "p3_perk_2": "Saytga joylanadigan Embed Vidjet",
+    "p3_perk_3": "Klinika administratori boshqaruv paneli",
+    "p3_perk_4": "Moliyaviy tushumlar va depozit hisoboti",
+    "p3_perk_5": "24/7 shaxsiy menejer",
+    "plan_3_btn": "Demo",
+    "faq_title": "Ko'p so'raladigan savollar",
+    "faq_sub": "Tizim bo'yicha eng muhim ma'lumotlar",
+    "faq_q1": "1. Mijozlar uchrashuv belgilashi uchun qanday ilova kerak?",
+    "faq_a1": "Hech qanday maxsus ilova kerak emas. Mijoz havolani brauzerda (Chrome, Safari) ochsa, xuddi Calendly kabi veb-sahifa ochiladi. Agar Telegramda ochsa, Telegram Mini App ichida silliq ishlaydi.",
+    "faq_q2": "2. To'langan depozit puli qayerga tushadi?",
+    "faq_a2": "Siz o'z Click Merchant yoki Payme Business ma'lumotlaringizni kiritasiz. Bemor to'lagan barcha to'lovlar to'g'ridan-to'g'ri Sizning bank hisobingizga tushadi. Bandla qo'shimcha komissiya olmaydi.",
+    "faq_q3": "3. Agar mijoz qabulga kela olmasa nima bo'ladi?",
+    "faq_a3": "Siz qabul siyosatingizni belgilaysiz (masalan, 12 soat oldin bekor qilinsa depozit qaytariladi yoki vaqtni boshqa kunga ko'chirish imkoni beriladi).",
+    "faq_q4": "4. Depozit olish majburiymi? Depozitsiz ham qabul qilsa bo'ladimi?",
+    "faq_a4": "Yo'q, mutlaqo majburiy emas! Siz har bir xizmatingiz uchun to'lov shaklini o'zingiz belgilaysiz: <b>Kafolatli depozit</b> (masalan 50,000 UZS), <b>100% to'liq to'lov</b> yoki <b>Joyida to'lash (depozitsiz - 0 UZS)</b>. Shuningdek, mijozning o'ziga ushbu 3 tadan birini erkin tanlash imkoniyatini berishingiz mumkin!",
+    "cta_banner_title": "Uchrashuvlaringizni bugunoq tartibga soling",
+    "cta_banner_sub": "Telefon qo‘ng‘iroqlari va tartibsiz yozishmalarga vaqtingizni sarflamang. Zamonaviy onlayn taqvim orqali qabullarni avtomatlashtiring va mijozlaringizga eng qulay xizmatni taqdim eting.",
+    "cta_banner_btn1": "Demo olish →",
+    "cta_banner_btn2": "Mutaxassis bilan gaplashish",
+    "footer_desc": "— O‘zbekiston uchun zamonaviy uchrashuvlarni band qilish ekotizimi.",
+    "footer_link_app": "Ilovani ochish",
+    "footer_link_pricing": "Tariflar",
+    "footer_link_solutions": "Sohalar",
+    "footer_link_contact": "Bog'lanish"
+  },
+  "en": {
+    "banner_badge": "New",
+    "banner_text": "Automate appointments across Uzbekistan via Telegram Mini App and Web!",
+    "banner_link": "Get Demo →",
+    "nav_solutions": "Industries",
+    "nav_comparison": "Before vs Now",
+    "nav_how": "How it works",
+    "nav_calc": "ROI Calculator",
+    "nav_pricing": "Pricing",
+    "nav_app": "Live App Demo",
+    "nav_demo": "Demo",
+    "hero_badge": "For professionals and service businesses who value their time",
+    "hero_title": "Turn every working hour into guaranteed revenue.",
+    "hero_sub": "Put an end to wasted hours, no-shows, and endless phone calls. Clients book themselves in 1 minute via Telegram or Web, with flexible payments you control (on-site, deposit, or full prepay).",
+    "bullet_1": "Zero back-and-forth",
+    "bullet_2": "Telegram Mini App",
+    "bullet_3": "Flexible payments",
+    "hero_input_ph": "Your phone number (+998 ...)",
+    "hero_cta": "Get Demo",
+    "hero_perk_1": "14-day free trial",
+    "hero_perk_2": "No credit card required",
+    "hero_perk_3": "Sets up in 5 minutes",
+    "hero_trust": "Trusted by 500+ professionals and service businesses in Uzbekistan",
+    "bot_header_sub": "bot • online",
+    "bot_msg_1": "Hello! 👋<br />You can easily book an appointment via <b>Bandla</b>. Which service do you need?",
+    "bot_user_service": "Consultation (30 min)",
+    "bot_slot_title": "Select convenient time:",
+    "bot_slot_1": "Today, 14:00",
+    "bot_slot_2": "Today, 16:00",
+    "bot_deposit_title": "Confirm booking:",
+    "bot_deposit_val": "50,000 UZS deposit",
+    "bot_paid": "Payment confirmed!",
+    "bot_input_ph": "Write a message...",
+    "steps_title": "4 simple steps for clients:",
+    "steps_time": "In 1 minute",
+    "step_1": "Selects a service",
+    "step_2": "Chooses a time slot",
+    "step_3": "Pays deposit",
+    "step_4": "Booking confirmed",
+    "steps_demo": "Live demo",
+    "diff_badge": "See the real difference",
+    "diff_title": "Appointment Management: Before vs Now",
+    "diff_sub": "See how manual back-and-forth messaging drains your business time, and how Bandla brings total peace of mind.",
+    "before_badge": "🔴 BEFORE",
+    "before_subbadge": "Manual Chaos",
+    "before_tag": "Headache",
+    "before_title": "Endless phone calls.<br />High no-show cancellation rate.",
+    "before_sub": "Time is wasted, clients forget, and empty slots deliver a direct hit to your bottom line.",
+    "before_item_1_sub": "Asked about booking, never answered back",
+    "before_item_1_status": "No answer",
+    "before_item_2_sub": "Wanted to change time last minute",
+    "before_item_2_status": "Cancelled",
+    "before_item_3_sub": "\"Can't come today, please reschedule to next week\"",
+    "before_item_3_status": "Cancelled",
+    "before_item_4_sub": "Did not show up at scheduled time (No-show)",
+    "before_item_4_status": "No-show",
+    "before_summary": "Result: Wasted work hours, empty seats, and 30-40% lost monthly revenue.",
+    "connector_title": "Different with<br />Bandla",
+    "connector_sub": "100% organized",
+    "after_badge": "🟢 NOW",
+    "after_subbadge": "With Bandla",
+    "after_tag": "Automated System",
+    "after_title": "Guaranteed bookings.<br />Calm, profitable business.",
+    "after_sub": "Clients pay deposits upfront, automated Telegram reminders trigger on time, and payouts hit your account directly via Click & Payme.",
+    "after_item_1_sub": "Deposit paid (50,000 UZS)",
+    "after_item_2_sub": "100% full payment (Click)",
+    "after_item_3_sub": "Telegram reminder sent automatically",
+    "after_item_4_sub": "Deposit paid (Payme)",
+    "after_item_status": "Confirmed",
+    "after_summary": "Result: 0 empty slots, 95%+ client turnout, calm and predictable monthly growth!",
+    "sol_badge": "For every industry",
+    "sol_title": "Designed for any business valuing time",
+    "sol_sub": "Bandla is built not just for doctors — it adapts seamlessly to any expert, practitioner, or business offering time-based bookings.",
+    "ind_1_title": "Clinics & Doctors",
+    "ind_1_desc": "Dentistry, therapists, and multi-profile clinics. Patients pick an open slot, pay deposit, and receive automatic reminders.",
+    "ind_1_tag": "Patient no-shows drop by 80%",
+    "ind_2_title": "Beauty & Salons",
+    "ind_2_desc": "Cosmetologists, laser clinics, barbershops, and stylists. Add your booking link to Instagram bio and let clients self-book.",
+    "ind_2_tag": "Zero DMs back-and-forth",
+    "ind_3_title": "Lawyers & Accountants",
+    "ind_3_desc": "Paid legal consultations and tax audits. Collect 100% upfront payment for every 45-minute advisory session.",
+    "ind_3_tag": "100% guaranteed payment",
+    "ind_4_title": "Tutors & Coaches",
+    "ind_4_desc": "IELTS, SAT tutors, and executive business coaches. Manage diagnostic tests and 1-on-1 private slots with ease.",
+    "ind_4_tag": "Automated class schedules",
+    "ind_5_title": "B2B Consulting & Agencies",
+    "ind_5_desc": "AI workflow, CRM, and IT audits (just like GPTify). Streamline qualified Discovery Calls with corporate prospects.",
+    "ind_5_tag": "2x B2B sales closing rate",
+    "ind_6_title": "Photo & Podcast Studios",
+    "ind_6_desc": "Sound recording, photo studios, and coworking meeting rooms. Accept full hourly prepayments with automated access.",
+    "ind_6_tag": "Zero empty studio slots",
+    "how_badge": "Simple and fast",
+    "how_title": "How does Bandla work?",
+    "how_sub": "Without any complex coding, launch a fully automated booking system in just 3 simple steps.",
+    "step_1_title": "Set your schedule & pricing",
+    "step_1_desc": "Define your working days, hours, service durations (e.g., 30 min), and deposit requirements (e.g., 50,000 UZS).",
+    "step_2_title": "Share your personal link",
+    "step_2_desc": "Place your unique link (bandla.gptify.uz/@yourname or Telegram bot link) in Instagram bio, Telegram channel, or website.",
+    "step_3_title": "Receive deposit & confirmed booking",
+    "step_3_desc": "Client pays via Payme/Click. Both you and client receive Telegram tickets with automated 24h & 2h reminders.",
+    "calc_badge": "ROI Calculator",
+    "calc_title": "How much do you lose each month from no-shows?",
+    "calc_sub": "In Uzbekistan, without deposit requirements, an average of <b>30-40% of appointments</b> are cancelled or missed.",
+    "calc_label_doc": "Number of specialists / doctors / staff:",
+    "calc_label_vis": "Daily appointments (per specialist):",
+    "calc_label_price": "Average service / booking price:",
+    "calc_loss_lbl": "Your estimated monthly revenue lost from no-shows:",
+    "calc_save_lbl": "Revenue protected with Bandla:",
+    "calc_cta": "Stop Revenue Loss →",
+    "comp_badge": "Why Bandla?",
+    "comp_title": "Direct Comparison with Alternatives",
+    "th_feature": "Capability",
+    "th_bot": "Custom Bot",
+    "row_1_title": "Click & Payme deposit integration",
+    "row_1_bandla": "✅ Native direct integration",
+    "row_1_cal": "❌ Stripe / PayPal only",
+    "row_1_alt": "⚠️ Partial (expensive)",
+    "row_1_bot": "❌ None",
+    "row_2_title": "Flexible payment modes (Deposit / Full / On-site)",
+    "row_2_bandla": "✅ All 3 options available",
+    "row_2_cal": "❌ 100% payment only",
+    "row_2_alt": "⚠️ Limited",
+    "row_2_bot": "❌ None",
+    "row_3_title": "Telegram Mini App (TMA)",
+    "row_3_bandla": "✅ Opens in 1 click inside TG",
+    "row_3_cal": "❌ Web browser only",
+    "row_3_alt": "❌ Separate app only",
+    "row_3_bot": "⚠️ Clunky text menus",
+    "row_4_title": "Telegram 24h & 2h reminders",
+    "row_4_bandla": "✅ Free automated bot",
+    "row_4_cal": "❌ Email / SMS only",
+    "row_4_alt": "⚠️ Paid SMS bundles",
+    "row_4_bot": "⚠️ Fragile",
+    "row_5_title": "Uzbek, Russian & English languages",
+    "row_5_bandla": "✅ 100% native in all 3",
+    "row_5_cal": "❌ English / Russian only",
+    "row_5_alt": "⚠️ Limited Uzbek",
+    "row_5_bot": "Manual coding required",
+    "row_6_title": "Monthly subscription price",
+    "row_6_bandla": "99,000 UZS / mo",
+    "row_6_cal": "~200,000 UZS / user",
+    "row_6_alt": "~450,000 UZS + SMS",
+    "row_6_bot": "10-25M UZS custom build",
+    "price_badge": "Transparent Pricing",
+    "price_title": "Plans tailored to your business scale",
+    "price_sub": "14-day free trial. No credit card required.",
+    "price_toggle_month": "Monthly billing",
+    "price_toggle_year": "Annual billing",
+    "price_discount_tag": "(-20% discount)",
+    "plan_per_month": "/ mo",
+    "plan_1_name": "Starter",
+    "plan_1_price": "0 UZS",
+    "plan_1_period": "Free forever",
+    "plan_1_desc": "For solo practitioners starting out or offering free initial consultations.",
+    "p1_perk_1": "1 specialist profile",
+    "p1_perk_2": "Unlimited free bookings",
+    "p1_perk_3": "Personal link (bandla.gptify.uz/@name)",
+    "p1_perk_4": "Google Calendar sync",
+    "p1_perk_5": "Click & Payme deposit collection",
+    "plan_1_btn": "Demo",
+    "plan_2_badge": "Most Popular",
+    "plan_2_name": "Solo Pro",
+    "plan_2_period": "Monthly billing",
+    "plan_2_desc": "Complete automation for private doctors, cosmetologists, lawyers, and B2B consultants.",
+    "p2_perk_1": "Collect deposits via Click & Payme",
+    "p2_perk_2": "24h and 2h Telegram reminders",
+    "p2_perk_3": "Telegram Mini App + Web booking",
+    "p2_perk_4": "Double-booking (Slot lock) protection",
+    "p2_perk_5": "Custom branding & logo",
+    "plan_2_btn": "Demo",
+    "plan_3_name": "Clinic & Team",
+    "plan_3_period": "For up to 5 specialists",
+    "plan_3_desc": "Designed for clinics, beauty salons, law firms, and educational academies.",
+    "p3_perk_1": "All Solo Pro features included",
+    "p3_perk_2": "Embeddable website widget",
+    "p3_perk_3": "Clinic manager admin dashboard",
+    "p3_perk_4": "Financial analytics & deposit reports",
+    "p3_perk_5": "Dedicated 24/7 account manager",
+    "plan_3_btn": "Demo",
+    "faq_title": "Frequently Asked Questions",
+    "faq_sub": "Essential details on how Bandla operates",
+    "faq_q1": "1. Do clients need to install a special application to book?",
+    "faq_a1": "No special app is needed. If a client opens your link in a mobile browser (Safari, Chrome), a clean Calendly-style web page opens. If opened inside Telegram, it launches seamlessly as a Telegram Mini App.",
+    "faq_q2": "2. Where do patient deposit payments go?",
+    "faq_a2": "You connect your own Click Merchant or Payme Business credentials. All client payments flow directly into your official bank account. Bandla takes 0% transaction commission.",
+    "faq_q3": "3. What happens if a client cannot attend their appointment?",
+    "faq_a3": "You configure your custom cancellation policy (e.g., deposits are refunded or rescheduled if cancelled at least 12 hours in advance).",
+    "faq_q4": "4. Is collecting a deposit mandatory? Can I book without deposits?",
+    "faq_a4": "No, deposits are not mandatory! You choose the payment policy for each service: <b>Guaranteed deposit</b> (e.g., 50,000 UZS), <b>100% full prepayment</b>, or <b>Pay on-site (0 deposit)</b>. You can also allow the client to choose freely among all 3 options!",
+    "cta_banner_title": "Organize your schedule and bookings today",
+    "cta_banner_sub": "Stop wasting hours on endless phone tag and unconfirmed appointments. Automate your calendar and give your clients a world-class booking experience.",
+    "cta_banner_btn1": "Get Demo →",
+    "cta_banner_btn2": "Talk to Specialist",
+    "footer_desc": "— Modern scheduling and payment ecosystem for Uzbekistan.",
+    "footer_link_app": "Open App",
+    "footer_link_pricing": "Pricing",
+    "footer_link_solutions": "Industries",
+    "footer_link_contact": "Contact"
+  },
+  "ru": {
+    "banner_badge": "Новинка",
+    "banner_text": "Автоматизируйте приём клиентов в Узбекистане через Telegram Mini App и сайт!",
+    "banner_link": "Демо →",
+    "nav_solutions": "Отрасли",
+    "nav_comparison": "До и Сейчас",
+    "nav_how": "Как работает",
+    "nav_calc": "Калькулятор",
+    "nav_pricing": "Тарифы",
+    "nav_app": "Живое демо (App)",
+    "nav_demo": "Демо",
+    "hero_badge": "Для специалистов и сервисов, ценящих своё время",
+    "hero_title": "Превратите каждый рабочий час в гарантированный доход.",
+    "hero_sub": "Положите конец сорванным встречам, неявкам и бесконечным звонкам. Клиенты записываются сами за 1 минуту через Telegram или веб, а форму оплаты выбираете вы (на месте, депозит или 100%).",
+    "bullet_1": "Без переписок в Direct",
+    "bullet_2": "Telegram Mini App",
+    "bullet_3": "Гибкая оплата",
+    "hero_input_ph": "Ваш номер телефона (+998 ...)",
+    "hero_cta": "Смотреть демо",
+    "hero_perk_1": "14 дней бесплатный тест",
+    "hero_perk_2": "Без привязки карты",
+    "hero_perk_3": "Настройка за 5 минут",
+    "hero_trust": "Доверяют более 500 специалистов и клиник по Узбекистану",
+    "bot_header_sub": "бот • онлайн",
+    "bot_msg_1": "Здравствуйте! 👋<br />Вы можете записаться на приём через <b>Bandla</b>. Какая услуга вас интересует?",
+    "bot_user_service": "Консультация (30 мин)",
+    "bot_slot_title": "Выберите удобное время:",
+    "bot_slot_1": "Сегодня, 14:00",
+    "bot_slot_2": "Сегодня, 16:00",
+    "bot_deposit_title": "Подтверждение записи:",
+    "bot_deposit_val": "50 000 сум депозит",
+    "bot_paid": "Оплата подтверждена!",
+    "bot_input_ph": "Напишите сообщение...",
+    "steps_title": "4 простых шага для клиента:",
+    "steps_time": "За 1 минуту",
+    "step_1": "Выбирает услугу",
+    "step_2": "Выбирает время",
+    "step_3": "Вносит депозит",
+    "step_4": "Запись подтверждена",
+    "steps_demo": "Демо-тест",
+    "diff_badge": "Оцените реальную разницу",
+    "diff_title": "Управление записями: До и Сейчас",
+    "diff_sub": "Посмотрите, как ручные переписки отнимают время вашего бизнеса, и какого спокойствия вы достигаете с Bandla.",
+    "before_badge": "🔴 РАНЬШЕ",
+    "before_subbadge": "Ручной хаос",
+    "before_tag": "Головная боль",
+    "before_title": "Куча звонков.<br />Масса сорванных приёмов.",
+    "before_sub": "Время уходит, клиенты забывают, пустые окна приносят прямой убыток бизнесу.",
+    "before_item_1_sub": "Спросил о записи, пропал и не ответил",
+    "before_item_1_status": "Без ответа",
+    "before_item_2_sub": "Хотел перенести время в последний момент",
+    "before_item_2_status": "Отменил",
+    "before_item_3_sub": "«Не смогу прийти, перенесите на следующую неделю»",
+    "before_item_3_status": "Отменил",
+    "before_item_4_sub": "Не пришел в назначенное время (No-show)",
+    "before_item_4_status": "Не явился",
+    "before_summary": "Результат: Потерянное время, пустой кабинет и потеря 30-40% месячной выручки.",
+    "connector_title": "С Bandla всё<br />иначе",
+    "connector_sub": "100% порядок",
+    "after_badge": "🟢 СЕЙЧАС",
+    "after_subbadge": "С Bandla",
+    "after_tag": "Авто-система",
+    "after_title": "Гарантированные записи.<br />Спокойный и прибыльный бизнес.",
+    "after_sub": "Клиенты вносят предоплату, Telegram-напоминания уходят вовремя, платежи через Click и Payme поступают сразу на ваш счет.",
+    "after_item_1_sub": "Депозит оплачен (50,000 UZS)",
+    "after_item_2_sub": "100% полная оплата (Click)",
+    "after_item_3_sub": "Telegram-напоминание отправлено",
+    "after_item_4_sub": "Депозит оплачен (Payme)",
+    "after_item_status": "Подтверждено",
+    "after_summary": "Результат: 0 пустых окон, явка клиентов 95%+, спокойный и стабильный доход!",
+    "sol_badge": "Для всех сфер",
+    "sol_title": "Для любого бизнеса, который ценит время",
+    "sol_sub": "Bandla подходит не только врачам — система адаптируется под любого эксперта или компанию, продающую услуги по времени.",
+    "ind_1_title": "Клиники и Врачи",
+    "ind_1_desc": "Стоматологии, терапевты и многопрофильные центры. Пациенты выбирают окно, платят депозит и получают напоминания.",
+    "ind_1_tag": "Неявка пациентов падает на 80%",
+    "ind_2_title": "Красота и Салоны",
+    "ind_2_desc": "Косметологи, лазерная эпиляция, барбершопы и стилисты. Разместите ссылку в Instagram bio, и клиенты запишутся сами.",
+    "ind_2_tag": "Без переписок в Direct",
+    "ind_3_title": "Юристы и Бухгалтеры",
+    "ind_3_desc": "Платные юридические консультации и аудит. Получайте 100% предоплату за каждую 45-минутную экспертную встречу.",
+    "ind_3_tag": "100% гарантированная оплата",
+    "ind_4_title": "Репетиторы и Коучи",
+    "ind_4_desc": "Преподаватели IELTS, SAT и бизнес-тренеры. Легко управляйте диагностическими тестами и частными уроками.",
+    "ind_4_tag": "Автоматизация расписания занятий",
+    "ind_5_title": "B2B Консалтинг и Агентства",
+    "ind_5_desc": "AI workflow, CRM и IT-аудит (как в GPTify). Проводите квалифицированные Discovery Calls с корпоративными клиентами.",
+    "ind_5_tag": "Конверсия B2B продаж выше в 2 раза",
+    "ind_6_title": "Фотостудии и Подкаст-залы",
+    "ind_6_desc": "Студии звукозаписи, фотозалы и переговорные. Принимайте полную почасовую предоплату без лишних звонков.",
+    "ind_6_tag": "Залы не пустуют",
+    "how_badge": "Просто и быстро",
+    "how_title": "Как работает Bandla?",
+    "how_sub": "Без сложного программирования — полноценная автоматизация записей всего за 3 простых шага.",
+    "step_1_title": "Настройте график и цены",
+    "step_1_desc": "Укажите рабочие дни, часы, длительность услуги (например: 30 мин) и сумму депозита (например: 50,000 UZS).",
+    "step_2_title": "Поделитесь ссылкой",
+    "step_2_desc": "Разместите личную ссылку (bandla.gptify.uz/@имя или ссылку на Telegram-бота) в Instagram bio, Telegram-канале или на сайте.",
+    "step_3_title": "Депозит зачислен, запись подтверждена",
+    "step_3_desc": "Клиент оплачивает через Payme/Click. Вам и клиенту приходит билет в Telegram с напоминаниями за 24 и 2 часа.",
+    "calc_badge": "Калькулятор выгоды",
+    "calc_title": "Сколько вы теряете в месяц из-за неявок?",
+    "calc_sub": "В Узбекистане без предоплаты в среднем <b>30-40% всех записей</b> отменяются или срываются.",
+    "calc_label_doc": "Количество специалистов (врачей / мастеров):",
+    "calc_label_vis": "Количество приёмов в день (на 1 специалиста):",
+    "calc_label_price": "Средняя стоимость услуги / приёма:",
+    "calc_loss_lbl": "Ваши ежемесячные потери из-за неявок:",
+    "calc_save_lbl": "Доход, сохраняемый с помощью Bandla:",
+    "calc_cta": "Остановить потери →",
+    "comp_badge": "Почему Bandla?",
+    "comp_title": "Прямое сравнение с альтернативами",
+    "th_feature": "Возможность",
+    "th_bot": "Обычный Бот",
+    "row_1_title": "Депозиты через Click и Payme",
+    "row_1_bandla": "✅ Прямая нативная интеграция",
+    "row_1_cal": "❌ Только Stripe / PayPal",
+    "row_1_alt": "⚠️ Частично (дорого)",
+    "row_1_bot": "❌ Нет",
+    "row_2_title": "Гибкая оплата (Депозит / Полная / На месте)",
+    "row_2_bandla": "✅ Свобода выбора из 3 опций",
+    "row_2_cal": "❌ Только 100% оплата",
+    "row_2_alt": "⚠️ Ограничено",
+    "row_2_bot": "❌ Нет",
+    "row_3_title": "Telegram Mini App (TMA)",
+    "row_3_bandla": "✅ Открывается в 1 клик в Telegram",
+    "row_3_cal": "❌ Только браузер",
+    "row_3_alt": "❌ Только отдельное приложение",
+    "row_3_bot": "⚠️ Текстовые меню",
+    "row_4_title": "Напоминания в Telegram за 24ч и 2ч",
+    "row_4_bandla": "✅ Бесплатный авто-бот",
+    "row_4_cal": "❌ Только Email / SMS",
+    "row_4_alt": "⚠️ Платные пакеты SMS",
+    "row_4_bot": "⚠️ Сложно поддерживать",
+    "row_5_title": "Узбекский, русский и английский языки",
+    "row_5_bandla": "✅ 100% поддержка всех 3 языков",
+    "row_5_cal": "❌ Только англ / рус",
+    "row_5_alt": "⚠️ Ограниченный узбекский",
+    "row_5_bot": "Пишется вручную",
+    "row_6_title": "Ежемесячная абонентская плата",
+    "row_6_bandla": "99,000 UZS / мес",
+    "row_6_cal": "~200,000 UZS / польз.",
+    "row_6_alt": "~450,000 UZS + SMS",
+    "row_6_bot": "10-25 млн UZS разработка",
+    "price_badge": "Прозрачные Тарифы",
+    "price_title": "Цены, подходящие для вашего бизнеса",
+    "price_sub": "14 дней бесплатного пробного периода. Карта не требуется.",
+    "price_toggle_month": "Оплата помесячно",
+    "price_toggle_year": "Оплата за год",
+    "price_discount_tag": "(-20% скидка)",
+    "plan_per_month": "/ мес",
+    "plan_1_name": "Стартовый",
+    "plan_1_price": "0 UZS",
+    "plan_1_period": "Навсегда бесплатно",
+    "plan_1_desc": "Для начинающих частных мастеров и экспертов с бесплатными консультациями.",
+    "p1_perk_1": "1 профиль специалиста",
+    "p1_perk_2": "Неограниченные бесплатные записи",
+    "p1_perk_3": "Персональная ссылка (bandla.gptify.uz/@имя)",
+    "p1_perk_4": "Синхронизация с Google Calendar",
+    "p1_perk_5": "Приём депозитов через Click & Payme",
+    "plan_1_btn": "Демо",
+    "plan_2_badge": "Хит Продаж",
+    "plan_2_name": "Соло Про",
+    "plan_2_period": "Ежемесячный платёж",
+    "plan_2_desc": "Полная автоматизация для частных врачей, косметологов, юристов и B2B экспертов.",
+    "p2_perk_1": "Приём депозитов через Click & Payme",
+    "p2_perk_2": "Telegram-напоминания за 24ч и 2ч",
+    "p2_perk_3": "Telegram Mini App + Веб-страница",
+    "p2_perk_4": "Защита от овербукинга (Slot lock)",
+    "p2_perk_5": "Свой брендинг и логотип",
+    "plan_2_btn": "Демо",
+    "plan_3_name": "Клиника & Команда",
+    "plan_3_period": "До 5 специалистов",
+    "plan_3_desc": "Для клиник, салонов красоты, юридических бюро и образовательных центров.",
+    "p3_perk_1": "Все возможности тарифа Про",
+    "p3_perk_2": "Виджет записи для вашего сайта",
+    "p3_perk_3": "Панель администратора клиники",
+    "p3_perk_4": "Финансовая аналитика и отчеты по депозитам",
+    "p3_perk_5": "Персональный менеджер 24/7",
+    "plan_3_btn": "Демо",
+    "faq_title": "Часто задаваемые вопросы",
+    "faq_sub": "Самое главное о работе платформы",
+    "faq_q1": "1. Нужно ли клиентам скачивать специальное приложение?",
+    "faq_a1": "Никаких отдельных приложений скачивать не нужно. Если клиент открывает ссылку в браузере (Chrome, Safari), открывается удобная веб-страница. Если в Telegram — мгновенно открывается Telegram Mini App.",
+    "faq_q2": "2. Куда поступают деньги за оплаченный депозит?",
+    "faq_a2": "Вы подключаете свой личный Click Merchant или Payme Business. Все оплаты пациентов поступают напрямую на ваш расчетный счет в банке. Bandla не берет комиссию с транзакций.",
+    "faq_q3": "3. Что если клиент не сможет прийти на приём?",
+    "faq_a3": "Вы сами задаете правила отмены (например: при отмене за 12 часов депозит возвращается или запись переносится на другой свободный день).",
+    "faq_q4": "4. Обязательно ли брать депозит? Можно ли записывать без предоплаты?",
+    "faq_a4": "Нет, депозит абсолютно не обязателен! Вы сами выбираете формат оплаты для каждой услуги: <b>Гарантийный депозит</b> (например, 50 000 UZS), <b>100% полная оплата</b> или <b>Оплата на месте (без депозита — 0 UZS)</b>. Также вы можете предоставить клиенту возможность выбрать удобный вариант самостоятельно!",
+    "cta_banner_title": "Наведите порядок в записях уже сегодня",
+    "cta_banner_sub": "Не тратьте рабочее время на бесконечные звонки и несогласованные записи. Автоматизируйте график и предоставьте клиентам сервис европейского уровня.",
+    "cta_banner_btn1": "Смотреть демо →",
+    "cta_banner_btn2": "Связаться со специалистом",
+    "footer_desc": "— Современная экосистема онлайн-записи и платежей для Узбекистана.",
+    "footer_link_app": "Открыть сервис",
+    "footer_link_pricing": "Тарифы",
+    "footer_link_solutions": "Отрасли",
+    "footer_link_contact": "Контакты"
+  }
+};
+
+    let currentLang = localStorage.getItem('bandla_lang') || 'uz';
+    let currentBilling = 'monthly';
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('bandla_lang', lang);
+
+      // Update switcher active states
+      ['uz', 'ru', 'en'].forEach(l => {
+        const btn = document.getElementById(`lang-btn-${l}`);
+        if (btn) {
+          if (l === lang) {
+            btn.className = "px-2.5 py-1 rounded-lg transition text-calblue-600 bg-white shadow-sm font-bold";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-lg transition hover:text-slate-900 font-semibold";
+          }
+        }
+      });
+
+      // Update text nodes with data-i18n
+      const dict = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) {
+          el.setAttribute('placeholder', dict[key]);
+        }
+      });
+
+      // Update calculator dynamic labels
+      updateCalculator();
+      setBilling(currentBilling);
+      
+      // Refresh icons if needed
+      lucide.createIcons();
+    }
+
+    // Calculator Dynamic Logic with Currency & Language Formats
+    function updateCalculator() {
+      const doctors = parseInt(document.getElementById('calc-doctors').value);
+      const visits = parseInt(document.getElementById('calc-visits').value);
+      const price = parseInt(document.getElementById('calc-price').value);
+
+      const docSuffix = currentLang === 'uz' ? 'nafar' : (currentLang === 'en' ? 'staff' : 'мастеров');
+      const visSuffix = currentLang === 'uz' ? 'ta' : (currentLang === 'en' ? 'visits' : 'приёмов');
+      const monthSuffix = currentLang === 'uz' ? '/ oy' : (currentLang === 'en' ? '/ mo' : '/ мес');
+
+      document.getElementById('calc-doctors-val').innerText = `${doctors} ${docSuffix}`;
+      document.getElementById('calc-visits-val').innerText = `${visits} ${visSuffix}`;
+      document.getElementById('calc-price-val').innerText = `${price.toLocaleString()} UZS`;
+
+      const totalVisits = doctors * visits * 25;
+      const noShowVisits = Math.round(totalVisits * 0.30);
+      const monthlyLoss = noShowVisits * price;
+      const savedRevenue = Math.round(monthlyLoss * 0.80);
+
+      document.getElementById('calc-monthly-loss').innerText = `${monthlyLoss.toLocaleString()} UZS`;
+      document.getElementById('calc-saved-val').innerText = `+${savedRevenue.toLocaleString()} UZS ${monthSuffix}`;
+    }
+
+    // Billing Mode (Monthly: 99k / 299k | Annual: 79k / 239k)
+    function setBilling(mode) {
+      currentBilling = mode;
+      const mBtn = document.getElementById('bill-monthly-btn');
+      const aBtn = document.getElementById('bill-annual-btn');
+
+      const yrNotePro = currentLang === 'uz' ? "Yillik to'langanda (948,000 UZS/yil)" : (currentLang === 'en' ? "Billed annually (948,000 UZS/yr)" : "При оплате за год (948 000 UZS/год)");
+      const yrNoteClinic = currentLang === 'uz' ? "Yillik to'langanda (2,868,000 UZS/yil)" : (currentLang === 'en' ? "Billed annually (2,868,000 UZS/yr)" : "При оплате за год (2 868 000 UZS/год)");
+      const moNotePro = currentLang === 'uz' ? "Oylik to'lov" : (currentLang === 'en' ? "Monthly billing" : "Оплата помесячно");
+      const moNoteClinic = currentLang === 'uz' ? "5 tagacha mutaxassis uchun" : (currentLang === 'en' ? "For up to 5 specialists" : "До 5 специалистов");
+
+      if (mode === 'annual') {
+        aBtn.className = "px-4 py-2 rounded-lg bg-calblue-500 text-white transition";
+        mBtn.className = "px-4 py-2 rounded-lg text-slate-600 hover:text-calblue-600 transition";
+        document.getElementById('price-pro').innerText = "79,000 UZS";
+        document.getElementById('sub-price-pro').innerText = yrNotePro;
+        document.getElementById('price-clinic').innerText = "239,000 UZS";
+        document.getElementById('sub-price-clinic').innerText = yrNoteClinic;
+      } else {
+        mBtn.className = "px-4 py-2 rounded-lg bg-calblue-500 text-white transition";
+        aBtn.className = "px-4 py-2 rounded-lg text-slate-600 hover:text-calblue-600 transition";
+        document.getElementById('price-pro').innerText = "99,000 UZS";
+        document.getElementById('sub-price-pro').innerText = moNotePro;
+        document.getElementById('price-clinic').innerText = "299,000 UZS";
+        document.getElementById('sub-price-clinic').innerText = moNoteClinic;
+      }
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+      updateCalculator();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

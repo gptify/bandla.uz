@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <defs>
+    <linearGradient id="brandGradSym" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006bff" />
+      <stop offset="100%" stop-color="#0047b3" />
+    </linearGradient>
+    <linearGradient id="accentGradSym" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="softGlowSym" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#006bff" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  
+  <g filter="url(#softGlowSym)">
+    <rect x="4" y="6" width="48" height="48" rx="14" fill="url(#brandGradSym)" />
+    <!-- Calendar Body -->
+    <rect x="13" y="16" width="30" height="28" rx="6" fill="#ffffff" fill-opacity="0.2" />
+    <!-- Calendar Header -->
+    <path d="M13 22C13 18.6863 15.6863 16 19 16H37C40.3137 16 43 18.6863 43 22V24H13V22Z" fill="#ffffff" fill-opacity="0.45" />
+    <!-- Rings -->
+    <rect x="19" y="13" width="3" height="6" rx="1.5" fill="#ffffff" />
+    <rect x="34" y="13" width="3" height="6" rx="1.5" fill="#ffffff" />
+    <!-- Checkmark -->
+    <path d="M20 31.5L25 36.5L36 25.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Live dot -->
+    <circle cx="43" cy="15" r="4.5" fill="url(#accentGradSym)" stroke="#ffffff" stroke-width="2" />
+  </g>
+</svg>
