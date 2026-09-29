@@ -151,10 +151,11 @@
           </div>
         </div>
 
-        <!-- CTA Box: Leads to Telegram Bot Demo -->
+        <!-- CTA Box: Leads to Telegram Bot Demo & Registers Lead -->
         <div class="pt-2 sm:pt-3">
-          <form onsubmit="event.preventDefault(); window.open('https://t.me/GPTifyUzAdminbot', '_blank');" class="flex flex-col sm:flex-row gap-2.5 max-w-lg">
+          <form onsubmit="handleHeroDemoSubmit(event)" class="flex flex-col sm:flex-row gap-2.5 max-w-lg">
             <input 
+              id="hero-phone-input"
               type="text" 
               placeholder="Telefon raqamingiz (+998 ...)" 
               data-i18n-placeholder="hero_input_ph"
@@ -1771,6 +1772,56 @@
         document.getElementById('sub-price-pro').innerText = moNotePro;
         document.getElementById('price-clinic').innerText = "199,000 UZS";
         document.getElementById('sub-price-clinic').innerText = moNoteClinic;
+      }
+    }
+
+    // Lead Registration & Demo handler
+    async function handleHeroDemoSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('hero-phone-input');
+      const phone = input ? input.value.trim() : '';
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalHtml = btn ? btn.innerHTML : '';
+      
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="text-xs">Yuborilmoqda...</span>';
+      }
+
+      // Send lead notification to admin via @GPTifyUzAdminbot
+      if (phone) {
+        const botToken = '8652296582:AAGr4AShAy8dHKBil5pM3R07t4m8upOjNhM';
+        const adminChatIds = ['327216340', '5077641672'];
+        const now = new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' });
+        const tgText = `🗓️ <b>Yangi Bandla Demo / Ro‘yxatdan o‘tish (bandla.gptify.uz)</b>\n\n` +
+                       `📞 <b>Telefon:</b> <code>${phone}</code>\n` +
+                       `⏰ <b>Vaqt:</b> ${now}\n` +
+                       `🌐 <b>Manba:</b> Bosh sahifa (Hero) formasi`;
+        try {
+          await Promise.allSettled(adminChatIds.map(chatId =>
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                chat_id: chatId,
+                text: tgText,
+                parse_mode: 'HTML'
+              })
+            })
+          ));
+        } catch(err) {
+          console.error('Lead notification error:', err);
+        }
+      }
+
+      // Redirect to Telegram Bot with start payload
+      const cleanPhone = phone.replace(/[^0-9]/g, '');
+      const tgUrl = cleanPhone ? `https://t.me/GPTifyUzAdminbot?start=bandla_${cleanPhone}` : `https://t.me/GPTifyUzAdminbot?start=bandla`;
+      window.open(tgUrl, '_blank');
+
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = originalHtml;
       }
     }
 
