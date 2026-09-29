@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://bandla.gptify.uz/" />
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/assets/bandla_symbol.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/bandla-favicon.svg" />
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -73,7 +73,7 @@
       <!-- Restored Original Bandla Logo with Ultra-High Visibility & Crisp Rendering -->
       <a href="#" class="flex items-center group">
         <img 
-          src="/assets/bandla_logo.png" 
+          src="/assets/bandla_logo.svg" 
           alt="Bandla" 
           class="h-10 sm:h-11 w-auto object-contain transition group-hover:opacity-90" 
         />
@@ -98,7 +98,7 @@
           <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 rounded-lg transition hover:text-slate-900 font-semibold">EN</button>
         </div>
 
-        <a href="/app.html" class="text-xs sm:text-sm px-3.5 py-2 rounded-xl text-slate-700 hover:text-calblue-600 font-semibold transition hidden sm:inline-flex items-center space-x-1.5">
+        <a href="/" class="text-xs sm:text-sm px-3.5 py-2 rounded-xl text-slate-700 hover:text-calblue-600 font-semibold transition hidden sm:inline-flex items-center space-x-1.5">
           <i data-lucide="play-circle" class="w-4 h-4 text-calblue-500"></i>
           <span data-i18n="nav_app">Jonli Ilova (App)</span>
         </a>
@@ -213,7 +213,7 @@
             <div class="flex items-center justify-between pb-2.5 border-b border-slate-200/80 bg-white/95 px-2 pt-1 -mx-3 -mt-1 backdrop-blur-md">
               <div class="flex items-center space-x-2">
                 <div class="w-8 h-8 rounded-full bg-calblue-500 flex items-center justify-center p-1.5 shadow-sm">
-                  <img src="/assets/bandla_symbol.png" alt="Bandla" class="w-full h-full object-contain" />
+                  <img src="/assets/bandla_app_icon.svg" alt="Bandla" class="w-full h-full object-contain" />
                 </div>
                 <div>
                   <div class="font-bold text-[13px] flex items-center space-x-1 text-slate-900">
@@ -951,13 +951,13 @@
           </a>
         </div>
 
-        <!-- 3. Klinika & Jamoa (Reduced to 299,000 UZS) -->
+        <!-- 3. Klinika & Jamoa (Reduced to 199,000 UZS) -->
         <div class="bg-white rounded-3xl p-8 border border-slate-200 cal-shadow flex flex-col justify-between space-y-6">
           <div class="space-y-4">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="plan_3_name">Klinika & Jamoa</span>
             <div>
               <div class="flex items-baseline space-x-1">
-                <span id="price-clinic" class="text-4xl font-extrabold text-calblue-900">299,000 UZS</span>
+                <span id="price-clinic" class="text-4xl font-extrabold text-calblue-900">199,000 UZS</span>
                 <span class="text-xs text-slate-500" data-i18n="plan_per_month">/ oy</span>
               </div>
               <div id="sub-price-clinic" class="text-xs text-slate-500 mt-1" data-i18n="plan_3_period">5 tagacha mutaxassis uchun</div>
@@ -1062,7 +1062,7 @@
   <footer class="border-t border-slate-200 bg-white py-8 px-4 sm:px-8 text-xs text-slate-500 text-center">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2.5">
-        <img src="/assets/bandla_symbol.png" alt="Bandla" class="h-6 w-auto crisp-img" />
+        <img src="/assets/bandla_symbol.svg" alt="Bandla" class="h-6 w-auto crisp-img" />
         <span class="font-bold text-slate-800 text-sm">Bandla</span>
         <span class="text-slate-500" data-i18n="footer_desc">— <a href="https://www.gptify.uz" target="_blank" class="hover:text-calblue-600 underline font-semibold text-slate-700">GPTify.uz</a> ekotizimi loyihasi (bandla.gptify.uz).</span>
       </div>
@@ -1746,14 +1746,14 @@
       document.getElementById('calc-saved-val').innerText = `+${savedRevenue.toLocaleString()} UZS ${monthSuffix}`;
     }
 
-    // Billing Mode (Monthly: 99k / 299k | Annual: 79k / 239k)
+    // Billing Mode (Monthly: 99k / 199k | Annual: 79k / 159k)
     function setBilling(mode) {
       currentBilling = mode;
       const mBtn = document.getElementById('bill-monthly-btn');
       const aBtn = document.getElementById('bill-annual-btn');
 
       const yrNotePro = currentLang === 'uz' ? "Yillik to'langanda (948,000 UZS/yil)" : (currentLang === 'en' ? "Billed annually (948,000 UZS/yr)" : "При оплате за год (948 000 UZS/год)");
-      const yrNoteClinic = currentLang === 'uz' ? "Yillik to'langanda (2,868,000 UZS/yil)" : (currentLang === 'en' ? "Billed annually (2,868,000 UZS/yr)" : "При оплате за год (2 868 000 UZS/год)");
+      const yrNoteClinic = currentLang === 'uz' ? "Yillik to'langanda (1,908,000 UZS/yil)" : (currentLang === 'en' ? "Billed annually (1,908,000 UZS/yr)" : "При оплате за год (1 908 000 UZS/год)");
       const moNotePro = currentLang === 'uz' ? "Oylik to'lov" : (currentLang === 'en' ? "Monthly billing" : "Оплата помесячно");
       const moNoteClinic = currentLang === 'uz' ? "5 tagacha mutaxassis uchun" : (currentLang === 'en' ? "For up to 5 specialists" : "До 5 специалистов");
 
@@ -1762,14 +1762,14 @@
         mBtn.className = "px-4 py-2 rounded-lg text-slate-600 hover:text-calblue-600 transition";
         document.getElementById('price-pro').innerText = "79,000 UZS";
         document.getElementById('sub-price-pro').innerText = yrNotePro;
-        document.getElementById('price-clinic').innerText = "239,000 UZS";
+        document.getElementById('price-clinic').innerText = "159,000 UZS";
         document.getElementById('sub-price-clinic').innerText = yrNoteClinic;
       } else {
         mBtn.className = "px-4 py-2 rounded-lg bg-calblue-500 text-white transition";
         aBtn.className = "px-4 py-2 rounded-lg text-slate-600 hover:text-calblue-600 transition";
         document.getElementById('price-pro').innerText = "99,000 UZS";
         document.getElementById('sub-price-pro').innerText = moNotePro;
-        document.getElementById('price-clinic').innerText = "299,000 UZS";
+        document.getElementById('price-clinic').innerText = "199,000 UZS";
         document.getElementById('sub-price-clinic').innerText = moNoteClinic;
       }
     }
